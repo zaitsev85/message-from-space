@@ -27,6 +27,22 @@ Decoded image of the recording (`img_source_pgm`_):
    :target: _images/decoded_greyscale2_scaledup.png
    :class: with-shadow
 
+-----------------
+Possible decoding
+-----------------
+
+Probably the symbols on the left represent digits and the number of elements on the right are the unary representation of this digit.
+
+Suppose that pixels in left symbols are enumerated as such:
+::
+   123
+   456
+   789
+
+Pixels 1, 2 and 4 are always the same: 0 1 1, correspondingly.
+
+Pixel 5 flips with every symbol. Pixel 6 flips every two symbols. Pixel 8 flips every four symbols. Pixel 9 probably flips every 8 symbols, but data is not enough to judge.
+
 .. _img_source_pgm: https://github.com/elventian/message-from-space/blob/master/source/decoded_greyscale2.pgm
 
 .. _edit this page on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/radio-transmission-recording.rst

@@ -17,4 +17,16 @@ Spectrogram of the recording (`notebook`_):
 
 .. _notebook: https://gist.github.com/nya3jp/5094571c5905783327f35e8df207c8ad#file-spectrogram-ipynb
 
+-----------
+Image
+-----------
+
+Decoded image of the recording (`img_source_pgm`_):
+
+.. image:: decoded_greyscale4_scaledup.png
+   :target: decoded_greyscale4_scaledup.png
+   :class: with-shadow
+
+.. _img_source_pgm: https://github.com/elventian/message-from-space/blob/master/source/decoded_greyscale4.pgm
+
 .. _edit this page on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/radio-transmission-recording.rst

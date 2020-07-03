@@ -23,10 +23,10 @@ Image
 
 Decoded image of the recording (`img_source_pgm`_):
 
-.. image:: decoded_greyscale4_scaledup.png
-   :target: decoded_greyscale4_scaledup.png
+.. image:: decoded_greyscale2_scaledup.png
+   :target: decoded_greyscale2_scaledup.png
    :class: with-shadow
 
-.. _img_source_pgm: https://github.com/elventian/message-from-space/blob/master/source/decoded_greyscale4.pgm
+.. _img_source_pgm: https://github.com/elventian/message-from-space/blob/master/source/decoded_greyscale2.pgm
 
 .. _edit this page on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/radio-transmission-recording.rst

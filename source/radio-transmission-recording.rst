@@ -113,13 +113,13 @@ Symbols on the left look like a binary encoding that should work for numbers 1..
 
 According to this theory we can speculate that the numbers 9..15 would be represented with these symbols:
 
-.. image:: numbers-encoding2.jpg
-   :width: 74px
+.. image:: numbers-encoding2.png
+   :width: 420px
 
 Based on this logic the symbols could be extended further like this:
 
-.. image:: numbers-encoding3.png
-   :width: 230px
+.. image:: numbers-encoding4.png
+   :width: 560px
 
 ...but this is merely a speculation not supported by any data at this point.
 

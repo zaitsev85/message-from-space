@@ -24,7 +24,7 @@ Image
 Decoded image of the recording (`img_source_pgm`_):
 
 .. image:: decoded_greyscale2_scaledup.png
-   :target: decoded_greyscale2_scaledup.png
+   :target: _images/decoded_greyscale2_scaledup.png
    :class: with-shadow
 
 .. _img_source_pgm: https://github.com/elventian/message-from-space/blob/master/source/decoded_greyscale2.pgm

@@ -1,57 +1,45 @@
 Radio Transmission Recording
 ============================
 
+.. note::
+
+   If you have any ideas or enhancements for this page, please `edit it on GitHub`_!
+
 :download:`Download <radio-transmission-recording.wav>` radio transmission recording.
 It was originally received at ~5 GHz and scaled down to ~500 Hz to make signal audible for humans.
 
-// TODO: what does it mean? If you have any idea, please `edit this page on GitHub`_!
+Following documentation is a cooperative result combined from our `Discord chat`_ and numerous pull requests.
+Thanks to everyone who helped!
 
------------
+
 Spectrogram
 -----------
 
-Spectrogram of the recording (`notebook`_):
+Spectrogram of the recording, rendered with a `notebook`_ by Discord user @nya:
 
-.. image:: radio-transmission-recording.png
-   :target: _images/radio-transmission-recording.png
+.. image:: radio-transmission-spectrogram.png
 
-.. _notebook: https://gist.github.com/nya3jp/5094571c5905783327f35e8df207c8ad#file-spectrogram-ipynb
 
------------
 Image
------------
+-----
 
-Decoded image of the recording (`img_source_pgm`_):
+A 2D image created by:
 
-.. image:: decoded_greyscale2_scaledup.png
-   :target: _images/decoded_greyscale2_scaledup.png
-   :class: with-shadow
+1. Converting low and high frequency spans into black and white squares respectively.
+2. Rearranging these squares into a rectangle instead of a single line.
 
------------------
-Possible decoding
------------------
+Contributed by Discord user @elventian.
 
-Probably the symbols on the left represent digits and the number of elements on the right are the unary representation of this digit.
+.. image:: radio-transmission-2d.png
+   :width: 240px
 
-Suppose that pixels in left symbols are enumerated as such:
-::
-   123
-   456
-   789
 
-Pixels 1, 2 and 4 are always the same: 0 1 1, correspondingly.
-
-Pixel 5 flips with every symbol. Pixel 6 flips every two symbols. Pixel 8 flips every four symbols. Pixel 9 probably flips every 8 symbols, but data is not enough to judge.
-
-.. _img_source_pgm: https://github.com/elventian/message-from-space/blob/master/source/decoded_greyscale2.pgm
-
-.. _edit this page on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/radio-transmission-recording.rst
-
------------
 Code
 -----------
 
-This Rust code (courtesy aaaa1 at Discord chat) generates decoded image from WAV file.
+This Rust code generates decoded images similar to the image included above from WAV files.
+
+Contributed by Discord user @aaaa1.
 
 .. code-block:: rust
 
@@ -105,5 +93,37 @@ This Rust code (courtesy aaaa1 at Discord chat) generates decoded image from WAV
        w.write_image_data(&data).unwrap();
    }
 
+Example output:
+
 .. image:: rust-generated-decoded-image.png
-   :target: _images/rust-generated-decoded-image.png
+   :width: 100px
+
+
+Interpretation
+--------------
+
+Based on the discussions with Discord users @nya, @Kilew, @fryguybob, @aaaa1, @gltronred and @elventian.
+
+Probably the symbols on the left represent numbers and the number of elements on the right is the unary representation of this number.
+
+Symbols on the left look like a binary encoding that should work for numbers 1..15 (picture erroneously says 8):
+
+.. image:: numbers-encoding.png
+   :width: 536px
+
+According to this theory we can speculate that the numbers 9..15 would be represented with these symbols:
+
+.. image:: numbers-encoding2.jpg
+   :width: 74px
+
+Based on this logic the symbols could be extended further like this:
+
+.. image:: numbers-encoding3.png
+   :width: 230px
+
+...but this is merely a speculation not supported by any data at this point.
+
+
+.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/radio-transmission-recording.rst
+.. _notebook: https://gist.github.com/nya3jp/5094571c5905783327f35e8df207c8ad#file-spectrogram-ipynb
+.. _Discord chat: https://discord.gg/xvMJbas

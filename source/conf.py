@@ -30,7 +30,12 @@ author = 'Ivan Zaitsev'
 # ones.
 extensions = [
     'sphinx_rtd_theme',
+    'sphinxcontrib.images',
 ]
+
+images_config = {
+    'override_image_directive': True,
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

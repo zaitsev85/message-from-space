@@ -1,5 +1,5 @@
-Radio Transmission Recording
-============================
+Message #1
+==========
 
 .. note::
 
@@ -106,10 +106,10 @@ Based on the discussions with Discord users @nya, @Kilew, @fryguybob, @aaaa1, @g
 
 Probably the symbols on the left represent numbers and the number of elements on the right is the unary representation of this number.
 
-Symbols on the left look like a binary encoding that should work for numbers 1..15 (picture erroneously says 8):
+Symbols on the left look like a binary encoding that should work for numbers 1..15. Picture says 8, because we have hard data only up to 8:
 
 .. image:: numbers-encoding.png
-   :width: 536px
+   :width: 240px
 
 According to this theory we can speculate that the numbers 9..15 would be represented with these symbols:
 

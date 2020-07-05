@@ -10,5 +10,6 @@ Contents
    personal-appeal
    radio-transmission-recording
    message2
+   message3
 
 .. include:: personal-appeal.rst

@@ -21,6 +21,17 @@ class Img:
             return False
         return c[0] + c[1] + c[2] > 382
 
+    def dump(self, ix, iy, higlight = set()):
+        for y in iy:
+            for x in ix:
+                if (x,y) in higlight:
+                    print(end="\x1b[40;31m")
+                print(end=".#"[self[x,y]])
+                if (x,y) in higlight:
+                    print(end="\x1b[m")
+            print()
+        print()
+
 
 class Svg:
     def __init__(self, fname, width, height):
@@ -58,6 +69,7 @@ def decode_number(img, x, y):
 
     # Get the size by iterating over top and left edges
     size = 0
+    negative = False
     while True:
         items = (
             img[x + size + 1, y - 1],
@@ -70,14 +82,17 @@ def decode_number(img, x, y):
             continue
         if items == (False, False, False, False):
             break
+        if items == (False, False, False, True):
+            negative = True
+            break
         return None
 
     if size == 0:
         return None
 
     # Check that right and bottom edges are empty
-    for i in range(size + 2):
-        if img[x + size + 1, y] or img[x, y + size + 1]:
+    for i in range(1,size + 2):
+        if img[x + size + 1, y+i] or img[x+i, y + size + 1]:
             return None
 
     # Decode the number
@@ -87,7 +102,10 @@ def decode_number(img, x, y):
             result += d * img[x + ix + 1, y + iy + 1]
             d *= 2
 
-    return size, result
+    if negative:
+        result = -result
+
+    return (size, size+negative), result
 
 
 def main(in_fname, out_fname):
@@ -102,7 +120,7 @@ def main(in_fname, out_fname):
     for y in range(img.size[1]):
         for x in range(img.size[0]):
             if (n := decode_number(img, x, y)) is not None:
-                svg.annotation(x - 0.5, y - 0.5, n[0] + 2, n[0] + 2, n[1])
+                svg.annotation(x - 0.5, y - 0.5, n[0][0] + 2, n[0][1] + 2, n[1])
     svg.close()
 
 

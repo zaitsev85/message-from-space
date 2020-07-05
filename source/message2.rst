@@ -31,7 +31,7 @@ Let x and y be column and row numbers in the range [0 ... N), then the place val
 
 Place values for N up to 5:
 
-.. image:: number_encoding_up_to_5x5.png
+.. image:: message2-encoding1.png
    :width: 1281px
 
 Actual numbers from the transmission, decoded by Discord users @gltronred and @frictionless:
@@ -40,6 +40,8 @@ Actual numbers from the transmission, decoded by Discord users @gltronred and @f
 ``506 507 508 509 510 511 512 513 514 ...``
 ``65535 65536 65537 ...``
 
+
+.. _message2-code:
 
 Code
 ----
@@ -50,7 +52,7 @@ Contributed by Discord user @pink_snow.
 
 Example output:
 
-.. image:: python-annotated-numbers.png
+.. image:: message2-annotated-full.png
 
 .. literalinclude:: annotate-numbers.py
    :language: python

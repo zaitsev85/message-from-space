@@ -43,17 +43,17 @@ Probably the symbols on the left represent numbers and the number of elements on
 
 Symbols on the left look like a binary encoding that should work for numbers 1..15. Picture says 8, because we have hard data only up to 8:
 
-.. image:: numbers-encoding.png
+.. image:: radio-transmission-encoding1.png
    :width: 240px
 
 According to this theory we can speculate that the numbers 9..15 would be represented with these symbols:
 
-.. image:: numbers-encoding2.png
+.. image:: radio-transmission-encoding2.png
    :width: 420px
 
 Based on this logic the symbols could be extended further like this:
 
-.. image:: numbers-encoding4.png
+.. image:: radio-transmission-encoding3.png
    :width: 560px
 
 :doc:`Second transmission <message2>` seems to support the second conjecture (right picture).
@@ -68,7 +68,7 @@ Contributed by Discord user @aaaa1.
 
 Example output:
 
-.. image:: rust-generated-decoded-image.png
+.. image:: radio-transmission-2d-rust.png
    :width: 100px
 
 .. literalinclude:: decode-wav.rs

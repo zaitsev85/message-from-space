@@ -18,8 +18,7 @@ This image was produced from the third radio transmission using :doc:`previously
 
 This partly annotated version of the image was made using :ref:`code from message #2 <message2-code>`.
 
-.. image:: message3-annotated.png
-   :width: 262px
+.. image:: message3-annotated.svg
 
 
 Interpretation
@@ -45,7 +44,7 @@ Contributed by Discord user @pink_snow.
 
 Example output:
 
-.. image:: message3-annotated-full.png
+.. image:: message3-annotated-full.svg
 
 @pink_snow also provided a Haskell version of the same code.
 

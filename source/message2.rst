@@ -52,7 +52,7 @@ Contributed by Discord user @pink_snow.
 
 Example output:
 
-.. image:: message2-annotated-full.png
+.. image:: message2-annotated-full.svg
 
 .. literalinclude:: annotate-numbers.py
    :language: python

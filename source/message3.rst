@@ -28,12 +28,16 @@ Contributed by Discord user @pink_snow.
 
 Looks like the bottom left additional pixel is used to indicate negative numbers.
 
-Actual numbers from the transmission:
+
+Decoded
+-------
 
 ``4 3 2 1 0 -1 -2 -3 -4 -5 -6 -7 -8 -9 -10 -11 -12 -13 -14 -15 -16 -17 ...``
 ``-510 -511 -512 -513 -514 ...``
 ``-65535 -65536 -65537 ...``
 
+
+.. _message3-code:
 
 Code
 ----
@@ -48,7 +52,7 @@ Example output:
 
 @pink_snow also provided a Haskell version of the same code.
 
-.. literalinclude:: annotate-numbers.hs
+.. literalinclude:: annotate.hs
    :language: haskell
 
 

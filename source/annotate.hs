@@ -1,16 +1,18 @@
 #! /usr/bin/env nix-shell
 #! nix-shell -i runhaskell -p
 #! nix-shell "haskellPackages.ghcWithPackages (pkgs: with pkgs; [JuicyPixels JuicyPixels-util errors])"
+#! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/5cb5ccb54229efd9a4cd1fccc0f43e0bbed81c5d.tar.gz
 
+import Control.Applicative
+import Control.Error.Safe
+import Data.List
+import Data.Maybe (catMaybes)
+import Data.Word (Word16)
+import Debug.Trace
+import Safe (lastMay)
+import System.Environment (getArgs)
 import qualified Codec.Picture as P
 import qualified Codec.Picture.RGBA8 as P8
-import Data.Word (Word16)
-import Data.List
-import Debug.Trace
-import Control.Error.Safe
-import Safe (lastMay)
-import Data.Maybe (catMaybes)
-import System.Environment (getArgs)
 
 --------------------------------------------------------------------------------
 -- Img
@@ -39,12 +41,15 @@ imgPixel (Img img scale) (x, y) =
     y' = y * scale
     P.PixelRGBA8 r g b _ = P.pixelAt img x' y'
 
-imgDump :: Img -> [Int] -> [Int] -> String
-imgDump img xs ys = unlines $ map showLine ys
+imgShow :: Img -> [Int] -> [Int] -> String
+imgShow img xs ys = unlines $ map showLine ys
   where showLine y = concatMap (\x -> if imgPixel img (x,y) then "#" else ".") xs
 
-imgDumpFull :: Img -> String
-imgDumpFull img = imgDump img [0..imgWidth img - 1] [0..imgHeight img - 1]
+imgShowFull :: Img -> String
+imgShowFull img = imgShow img [0..imgWidth img - 1] [0..imgHeight img - 1]
+
+instance Show Img where
+  show = imgShowFull
 
 imgAllPixels :: Img -> [Coord]
 imgAllPixels img = [(x, y) | x <- [0..imgWidth img - 1], y <- [0..imgHeight img - 1]]
@@ -80,7 +85,7 @@ decodeNumber img (x, y) = do
   -- 1. Check that 2x2 top left corner is empty (`.` and `:`)
   assertMay $ not $ any px [(x-1, y-1), (x, y-1), (x-1, y), (x,y)]
 
-  -- 2. Calculate the size based on top and left edges (`.` and `#`)
+  -- 2. Calculate the size based on top and left edges (`_` and `#`)
   let topLeft' i = (px (x + i, y - 1), px (x + i, y),
                     px (x - 1, y + i), px (x,     y + i))
   let topLeft = takeWhile (\i -> (False, True, False, True) == topLeft' i) $ [1..]
@@ -111,6 +116,31 @@ bitsToInteger = fst . foldl' f (0, 1)
     f (sum, bit) True = (sum + bit, bit*2)
     f (sum, bit) False = (sum, bit*2)
 
+sym :: [String] -> [[Bool]]
+sym = map (map (=='#'))
+
+symEllipsis = sym
+  [ "........."
+  , ".#.#.#.#."
+  , "........."
+  ]
+
+symEq = sym
+  ["....."
+  ,".###."
+  ,".#..."
+  ,".###."
+  ,"....."
+  ]
+
+checkLine :: Img -> [Bool] -> Coord -> Bool
+checkLine img [] _ = True
+checkLine img (h:t) (x, y) = (imgPixel img (x, y) == h) && checkLine img t (x+1, y)
+
+checkSymbol :: Img -> [[Bool]] -> Coord -> Bool
+checkSymbol _ [] _ = True
+checkSymbol img (h:t) (x, y) = checkLine img h (x, y) && checkSymbol img t (x, y+1)
+
 --------------------------------------------------------------------------------
 -- svg
 
@@ -118,38 +148,40 @@ svg img annotations =
   concat $ (
     svgHead img ++
     svgImgPoints img ++
-    concatMap (\(x,y,w,h,text) -> svgAnnotation x y w h text) annotations ++
+    concatMap (\(x,y,w,h,text,color) -> svgAnnotation x y w h text color) annotations ++
     ["</svg>"]
   )
 
 svgHead img = [
     "<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='",
-    show $ imgWidth img * 8,
+    show $ 1 + imgWidth img * 8,
     "' height='",
-    show $ imgHeight img * 8,
+    show $ 1 + imgHeight img * 8,
     "'>\n",
     "<rect width='100%' height='100%' style='fill:black'/>\n"
   ]
 
-svgPoint img (x, y) = [
-    "<rect x='", show (x*8),
-    "' y='", show (y*8),
-    "' width='7' height='7' style='fill:white'/>\n"
+svgPoint img (x, y) value = [
+    "<rect x='", show (1 + x*8),
+    "' y='", show (1 + y*8),
+    "' width='7' height='7' style='fill:",
+    if value then "white" else "#333333",
+    "'/>\n"
   ]
 
-svgImgPoints img = 
-  concatMap (svgPoint img) $ filter (imgPixel img) $ imgAllPixels img
+svgImgPoints img =
+  concatMap (\coord -> svgPoint img coord (imgPixel img coord)) $ imgAllPixels img
 
-svgAnnotation :: Double -> Double -> Double -> Double -> String -> [String]
-svgAnnotation x y w h text = [
-    "<rect x='", show (x*8),
-    "' y='", show (y*8),
-    "' width='", show (w*8),
-    "' height='", show (h*8),
-    "' style='fill:green;opacity:0.5'/>\n",
+svgAnnotation :: Double -> Double -> Double -> Double -> String -> String -> [String]
+svgAnnotation x y w h text color = [
+    "<rect x='", show (1 + x*8),
+    "' y='", show (1 + y*8),
+    "' width='", show (1 + w*8),
+    "' height='", show (1 + h*8),
+    "' style='fill:", color, ";opacity:0.5'/>\n",
 
-    "<text x='", show (x*8 + w*4),
-    "' y='", show (y*8 + h*4),
+    "<text x='", show (1 + x*8 + w*4),
+    "' y='", show (1 + y*8 + h*4),
     "' dominant-baseline='middle' text-anchor='middle' fill='white' style='",
     "paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;",
     "'>", text, "</text>\n"
@@ -159,9 +191,22 @@ svgAnnotation x y w h text = [
 --------------------------------------------------------------------------------
 -- Main
 
-decodeAnnotate img (x,y) = do
-  (number, (w, h)) <- decodeNumber img (x, y)
-  Just (fromIntegral x - 0.5, fromIntegral y - 0.5, fromIntegral w+2, fromIntegral h+2, show number)
+decodeAnnotate img (x,y) = num <|> symEq' <|> symEllipsis'
+  where
+    num = do
+      (number, (w, h)) <- decodeNumber img (x, y)
+      Just (fromIntegral x - 0.5,
+            fromIntegral y - 0.5,
+            fromIntegral w + 2,
+            fromIntegral h + 2,
+            show number,
+            "green")
+    symEq' = do
+      assertMay $ checkSymbol img symEq (x, y)
+      Just (fromIntegral x + 0.5, fromIntegral y + 0.5, 4, 4, "=", "yellow")
+    symEllipsis' = do
+      assertMay $ checkSymbol img symEllipsis (x, y)
+      Just (fromIntegral x + 0.5, fromIntegral y + 0.5, 8, 2, "…", "gray")
 
 annotateImg :: Img -> String
 annotateImg img = svg img annotations

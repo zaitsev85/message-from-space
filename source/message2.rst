@@ -34,7 +34,11 @@ Place values for N up to 5:
 .. image:: message2-encoding1.png
    :width: 1281px
 
-Actual numbers from the transmission, decoded by Discord users @gltronred and @frictionless:
+
+Decoded
+-------
+
+Decoded by Discord users @gltronred and @frictionless.
 
 ``0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 ...``
 ``506 507 508 509 510 511 512 513 514 ...``
@@ -54,7 +58,7 @@ Example output:
 
 .. image:: message2-annotated-full.svg
 
-.. literalinclude:: annotate-numbers.py
+.. literalinclude:: annotate.py
    :language: python
 
 

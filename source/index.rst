@@ -1,9 +1,6 @@
 Message From Space
 ==================
 
-Contents
---------
-
 .. toctree::
    :maxdepth: 2
 
@@ -13,5 +10,3 @@ Contents
    message3
    message4
    message5
-
-.. include:: personal-appeal.rst

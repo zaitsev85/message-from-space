@@ -31,6 +31,7 @@ author = 'Ivan Zaitsev'
 extensions = [
     'sphinx_rtd_theme',
     'sphinxcontrib.images',
+    'sphinxcontrib.rsvgconverter',
 ]
 
 images_config = {

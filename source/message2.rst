@@ -32,7 +32,6 @@ Let x and y be column and row numbers in the range [0 ... N), then the place val
 Place values for N up to 5:
 
 .. image:: message2-encoding1.png
-   :width: 1281px
 
 
 Decoded

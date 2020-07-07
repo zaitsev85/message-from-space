@@ -52,7 +52,7 @@ Decoded
 Code
 ----
 
-Revised version of the Haskell code that supports the equality sign is published on the :ref:`message #3 page <message3-code>`.
+Revised version of the Haskell code that supports the ``=`` glyph is published on the :ref:`message #3 page <message3-code>`.
 
 Contributed by Discord user @pink_snow.
 

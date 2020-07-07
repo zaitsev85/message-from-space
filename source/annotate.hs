@@ -116,6 +116,63 @@ bitsToInteger = fst . foldl' f (0, 1)
     f (sum, bit) True = (sum + bit, bit*2)
     f (sum, bit) False = (sum, bit*2)
 
+--------------------------------------------------------------------------------
+-- Number decoder
+
+decodeOperator :: Img -> Coord -> Maybe (Integer, Size)
+decodeOperator img (x, y) = do
+  {-
+    Figure:
+       . . _ _ _ _ ,
+       . # # # # # ,   → x
+       _ # + + + + -
+       _ # + + + + -
+       _ # + + + + -
+       _ # + + + + -
+       , - - - - - -
+
+         ↓
+         y
+
+     Legend:
+       . : _ , - — black pixels
+       #         — white pixels
+       ?         — negativity bit
+       +         — binary data
+       :         — point (x, y)
+  -}
+
+  let px = imgPixel img
+
+  -- 1. Check that 2x2 top left corner has the bottom right pixel set (`.` and `#`)
+  assertMay $ (&& px (x,y)) $ not $ any px [(x-1, y-1), (x, y-1), (x-1, y)]
+
+  -- 2. Calculate the size based on top and left edges (`_` and `#`)
+  let topLeft' i = (px (x + i, y - 1), px (x + i, y),
+                    px (x - 1, y + i), px (x,     y + i))
+  let topLeft = takeWhile (\i -> (False, True, False, True) == topLeft' i) $ [1..]
+  size <- lastMay topLeft
+  assertMay $ size >= 1
+
+  -- 3. Check the negativity bit (`?`) and empty space at corners (`,`)
+  negative <-
+    case topLeft' (size+1) of
+      (False, False, False, False) -> Just False
+      (False, False, False, True) -> Just True
+      otherwise -> Nothing
+
+  -- 4. Check that right and bottom edges are empty (`-`)
+  assertMay $ not $
+    any (\i -> px (x + size + 1, y+i) || px(x+i, y + size + 1)) [1 .. size+1]
+
+  -- 5. Decode binary data
+  let number = bitsToInteger [px (ix,iy) | iy <- [y+1 .. y+size], ix <- [x+1 .. x+size]]
+
+  Just $ if negative
+    then (-number, (size, size+1))
+    else (number, (size, size))
+
+
 sym :: [String] -> [[Bool]]
 sym = map (map (=='#'))
 
@@ -123,14 +180,6 @@ symEllipsis = sym
   [ "........."
   , ".#.#.#.#."
   , "........."
-  ]
-
-symEq = sym
-  ["....."
-  ,".###."
-  ,".#..."
-  ,".###."
-  ,"....."
   ]
 
 checkLine :: Img -> [Bool] -> Coord -> Bool
@@ -187,11 +236,10 @@ svgAnnotation x y w h text color = [
     "'>", text, "</text>\n"
   ]
 
-
 --------------------------------------------------------------------------------
 -- Main
 
-decodeAnnotate img (x,y) = num <|> symEq' <|> symEllipsis'
+decodeAnnotate img (x,y) = num <|> op <|> symEllipsis'
   where
     num = do
       (number, (w, h)) <- decodeNumber img (x, y)
@@ -201,9 +249,21 @@ decodeAnnotate img (x,y) = num <|> symEq' <|> symEllipsis'
             fromIntegral h + 2,
             show number,
             "green")
-    symEq' = do
-      assertMay $ checkSymbol img symEq (x, y)
-      Just (fromIntegral x + 0.5, fromIntegral y + 0.5, 4, 4, "=", "yellow")
+    
+    op = do
+        (number, (w, h)) <- decodeOperator img (x, y)
+        Just (fromIntegral x - 0.5,
+              fromIntegral y - 0.5,
+              fromIntegral w + 2,
+              fromIntegral h + 2,
+              interpretOp number,
+              "yellow")
+
+    interpretOp 0   = "id"
+    interpretOp 12  = "=="
+    interpretOp 417 = "(+1)"
+    interpretOp n   = show n
+
     symEllipsis' = do
       assertMay $ checkSymbol img symEllipsis (x, y)
       Just (fromIntegral x + 0.5, fromIntegral y + 0.5, 8, 2, "…", "gray")

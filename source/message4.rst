@@ -27,5 +27,5 @@ Interpretation
 
 Once again, I encourage you to join our `chat server`_ to combine efforts and crack this message.
 
-.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message3.rst
+.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message4.rst
 .. _chat server: https://discord.gg/xvMJbas

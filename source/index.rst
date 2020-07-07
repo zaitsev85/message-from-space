@@ -12,5 +12,6 @@ Contents
    message2
    message3
    message4
+   message5
 
 .. include:: personal-appeal.rst

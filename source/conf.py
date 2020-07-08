@@ -32,11 +32,11 @@ extensions = [
     'sphinx_rtd_theme',
     'sphinxcontrib.images',
     'sphinxcontrib.rsvgconverter',
-#    'sphinx.ext.todo',
+    'sphinx.ext.todo',
 ]
 
-#todo_include_todos = True
-#todo_link_only = True
+todo_include_todos = True
+todo_link_only = True
 
 images_config = {
     'override_image_directive': True,

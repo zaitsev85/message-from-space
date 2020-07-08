@@ -23,7 +23,7 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-.. note::
+.. todo::
 
    Add an interpretation for the sixth message.
 
@@ -31,7 +31,7 @@ Interpretation
 Decoded
 -------
 
-.. note::
+.. todo::
 
    Decode the sixth message.
 
@@ -39,7 +39,7 @@ Decoded
 Code
 ----
 
-.. note::
+.. todo::
 
    Revise the :ref:`Haskell code <message3-code>` to support new glyphs from the sixth message.
 

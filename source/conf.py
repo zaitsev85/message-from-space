@@ -79,7 +79,8 @@ def setup(app):
 
         i = 1
         while os.path.isfile(os.path.join(dirname, 'message%d.png' % i)):
-            f.write('Message #%d\n' % i)
+            with open(os.path.join(dirname, 'message%d.rst' % i)) as m:
+                f.write(m.readline())
             f.write('----------\n\n')
 
             f.write('.. image:: message%d.png\n' % i)

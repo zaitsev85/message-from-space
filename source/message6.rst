@@ -1,5 +1,5 @@
-Message #6
-==========
+#6. Predecessor
+===============
 
 .. note::
 

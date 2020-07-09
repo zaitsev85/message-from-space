@@ -1,5 +1,5 @@
-Message #3
-==========
+#3. Negative numbers
+====================
 
 .. note::
 

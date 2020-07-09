@@ -80,8 +80,9 @@ def setup(app):
         i = 1
         while os.path.isfile(os.path.join(dirname, 'message%d.png' % i)):
             with open(os.path.join(dirname, 'message%d.rst' % i)) as m:
-                f.write(m.readline())
-            f.write('----------\n\n')
+                title = m.readline()
+                f.write(title)
+                f.write('-' * (len(title) - 1) + '\n\n')
 
             f.write('.. image:: message%d.png\n' % i)
             f.write('   :width: %dpx\n\n' % get_image_width(os.path.join(dirname, 'message%d.png' % i)))

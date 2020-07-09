@@ -1,2 +1,6 @@
 #1. Numbers
 ===========
+
+THIS FILE IS USED ONLY FOR THE AUTOMATED GENERATION OF CONDENSED VERSION.
+
+ACTUAL CONTENTS AT radio-transmission-recording.rst

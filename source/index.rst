@@ -1,14 +1,15 @@
 Message From Space
 ==================
 
-Contents
---------
-
 .. toctree::
    :maxdepth: 2
 
    personal-appeal
    radio-transmission-recording
    message2
-
-.. include:: personal-appeal.rst
+   message3
+   message4
+   message5
+   message6
+   message7
+   todolist

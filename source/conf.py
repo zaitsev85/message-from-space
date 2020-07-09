@@ -13,7 +13,9 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+import os
 import sphinx_rtd_theme
+from PIL import Image
 
 
 # -- Project information -----------------------------------------------------
@@ -62,3 +64,27 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# Condensed version generation
+def setup(app):
+    dirname = os.path.dirname(__file__)
+
+    def get_image_width(filename):
+        img = Image.open(filename)
+        return img.size[0]
+
+    with open(os.path.join(dirname, 'condensed-version.rst'), 'w') as f:
+        f.write('Condensed Version\n')
+        f.write('=================\n\n')
+
+        i = 1
+        while os.path.isfile(os.path.join(dirname, 'message%d.png' % i)):
+            f.write('Message #%d\n' % i)
+            f.write('----------\n\n')
+
+            f.write('.. image:: message%d.png\n' % i)
+            f.write('   :width: %dpx\n\n' % get_image_width(os.path.join(dirname, 'message%d.png' % i)))
+
+            f.write('.. literalinclude:: message%d-decoded.txt\n\n\n' % i)
+
+            i += 1

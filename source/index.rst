@@ -2,9 +2,10 @@ Message From Space
 ==================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    personal-appeal
+   condensed-version
    radio-transmission-recording
    message2
    message3

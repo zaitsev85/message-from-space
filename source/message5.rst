@@ -15,12 +15,12 @@ Image
 This image was produced from the fifth radio transmission using :doc:`previously contributed code <radio-transmission-recording>`.
 
 .. image:: message5.png
-   :width: 100px
+   :width: 148px
 
 This partly annotated version of the image was made using :ref:`code from message #3 <message3-code>`.
 
 .. image:: message5-annotated.svg
-   :width: 100px
+   :width: 148px
 
 
 Interpretation
@@ -43,34 +43,20 @@ The numerical value of new symbols are 0 and 417.
 Decoded
 -------
 
-::
-
-  (+1)
-  id (+1) 0 == 1
-  id (+1) 1 == 2
-  id (+1) 2 == 3
-  id (+1) 3 == 4
-  ...
-  id (+1) 300 == 301
-  id (+1) 301 == 302
-  ...
-  id (+1) -1 == 0
-  id (+1) -2 == -1
-  id (+1) -3 == -2
-  ...
+.. literalinclude:: message5-decoded.txt
 
 
 Code
 ----
 
-Revised version of the Haskell code that supports the ``id`` and ``(+1)`` glyphs is published on the :ref:`message #3 page <message3-code>`.
+Revised version of the Haskell code that supports the ``ap`` and ``inc`` glyphs is published on the :ref:`message #3 page <message3-code>`.
 
 Contributed by Discord users @pink_snow and @fryguybob.
 
 Example output:
 
 .. image:: message5-annotated-full.svg
-   :width: 100px
+   :width: 148px
 
 
 .. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message4.rst

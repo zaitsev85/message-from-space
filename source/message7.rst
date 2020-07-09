@@ -5,6 +5,9 @@ Message #7
 
    If you have any ideas or enhancements for this page, please `edit it on GitHub`_!
 
+Following documentation is a cooperative result combined from our `Discord chat`_ and numerous pull requests.
+Thanks to everyone who helped!
+
 
 Image
 -----
@@ -12,12 +15,12 @@ Image
 This image was produced from the seventh radio transmission using :doc:`previously contributed code <radio-transmission-recording>`.
 
 .. image:: message7.png
-   :width: 100px
+   :width: 176px
 
 This partly annotated version of the image was made using :ref:`code from message #3 <message3-code>`.
 
 .. image:: message7-annotated.svg
-   :width: 100px
+   :width: 176px
 
 
 Interpretation
@@ -26,31 +29,33 @@ Interpretation
 This image shows all known operators and functions
 
 .. image:: functions.png
-   :width: 700px
+   :width: 500px
 
 Count of operand symbols before function symbol defines how many operands the function expects.
 if this is correct, we need to do the following to calculate sum of three numbers:
 
 .. image:: operands_usage.png
-   :width: 700px
+   :width: 500px
+
 
 Decoded
 -------
 
-.. todo::
-
-   Decode the seventh message.
+.. literalinclude:: message7-decoded.txt
 
 
 Code
 ----
 
-.. todo::
+Revised version of the Haskell code that supports the ``add`` glyph is published on the :ref:`message #3 page <message3-code>`.
 
-   Revise the :ref:`Haskell code <message3-code>` to support new glyphs from the seventh message.
+Contributed by Discord users @pink_snow and @fryguybob.
 
+Example output:
 
-Once again, I encourage you to join our `chat server`_ to combine efforts and crack this message.
+.. image:: message7-annotated-full.svg
+   :width: 176px
+
 
 .. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message7.rst
-.. _chat server: https://discord.gg/xvMJbas
+.. _Discord chat: https://discord.gg/xvMJbas

@@ -33,20 +33,7 @@ Can be a less-than sign, any operation that preserves its operand, etc.
 Decoded
 -------
 
-::
-
-   =
-   0 = 0
-   1 = 1
-   2 = 2
-   3 = 3
-   ...
-   10 = 10
-   11 = 11
-   ...
-   -1 = -1
-   -2 = -2
-   ...
+.. literalinclude:: message4-decoded.txt
 
 
 Code

@@ -1,0 +1,7 @@
+add
+ap ap add 1 2   =   3
+ap ap add 2 1   =   3
+ap ap add 0 1   =   1
+ap ap add 2 3   =   5
+ap ap add 3 5   =   8
+...

@@ -1,0 +1,12 @@
+dec
+ap dec 1   =   0
+ap dec 2   =   1
+ap dec 3   =   2
+ap dec 4   =   3
+...
+ap dec 1024   =   1023
+...
+ap dec 0   =   -1
+ap dec -1   =   -2
+ap dec -2   =   -3
+...

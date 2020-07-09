@@ -23,17 +23,23 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-.. todo::
+Just like in Message #5, there are two unknown symbols in this message, together they represent a decrement operation.
 
-   Add an interpretation for the sixth message.
+The three-pixel symbol is identical to increment operation, and the other complicated one looks similar to increment,
+but rejects our theory about internal structure of the symbol, so it's just an arbitrary patterns.
 
 
 Decoded
 -------
 
-.. todo::
+::
 
-   Decode the sixth message.
+  (+)
+  id id (+) 1 2 == 3
+  id id (+) 2 1 == 3
+  id id (+) 0 1 == 1
+  id id (+) 2 3 == 5
+  id id (+) 3 5 == 8
 
 
 Code

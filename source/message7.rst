@@ -23,10 +23,16 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-.. todo::
+This image shows all known operators and functions
 
-   Add an interpretation for the seventh message.
+.. image:: functions.png
+   :width: 700px
 
+Count of operand symbols before function symbol defines how many operands the function expects.
+if this is correct, we need to do the following to calculate sum of three numbers:
+
+.. image:: operands_usage.png
+   :width: 700px
 
 Decoded
 -------

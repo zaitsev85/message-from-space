@@ -26,7 +26,9 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-This image shows all known operators and functions
+Contributed by Discord user @elventian.
+
+This image shows all known operators and functions:
 
 .. image:: functions.png
    :width: 500px

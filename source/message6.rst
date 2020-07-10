@@ -26,6 +26,8 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
+Contributed by Discord user @elventian.
+
 Just like in :doc:`message5`, there are two unknown symbols in this message, together they represent a decrement operation.
 
 The three-pixel symbol is identical to increment operation, and the other complicated one looks similar to increment,

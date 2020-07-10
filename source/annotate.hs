@@ -4,25 +4,62 @@
 #! nix-shell "haskellPackages.ghcWithPackages (pkgs: with pkgs; [JuicyPixels JuicyPixels-util errors extra groupBy])"
 #! nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/5cb5ccb54229efd9a4cd1fccc0f43e0bbed81c5d.tar.gz
 
-import Control.Applicative ((<|>))
-import Control.Error.Safe (assertMay)
-import Data.List (foldl', intercalate)
+import Control.Monad (forM, forM_)
+import Control.Monad.ST (runST)
+import Data.List (foldl', intercalate, sortOn)
 import Data.List.Extra (groupOn)
 import Data.List.GroupBy (groupBy)
 import Data.Maybe (catMaybes)
 import Data.Word (Word16)
-import Safe (lastMay)
 import System.Environment (getArgs)
 import qualified Codec.Picture as P
 import qualified Codec.Picture.RGBA8 as P8
+import qualified Data.Vector.Mutable as V
 
 --------------------------------------------------------------------------------
--- Img
+-- Types
 
 type Scale = Int
 type Coord = (Int, Int)
 type Size = (Int, Int)
+
 data Img = Img (P.Image P.PixelRGBA8) Scale
+
+data Symbol
+  = SymNumber Integer
+  | SymOperator Integer
+  | SymVariable Integer
+  | SymEllipsis
+  | SymUnknown
+
+--------------------------------------------------------------------------------
+-- Misc functions
+
+range2d :: Int -> Int -> Int -> Int -> [(Int, Int)]
+range2d x0 y0 x1 y1 = [(x', y') | y' <- [y0..y1], x' <- [x0..x1]]
+
+none :: (a -> Bool) -> [a] -> Bool
+none = (not .) . any
+
+bitsToInteger :: [Bool] -> Integer
+bitsToInteger = fst . foldl' f (0, 1)
+  where
+    f (sum, bit) True = (sum + bit, bit*2)
+    f (sum, bit) False = (sum, bit*2)
+
+groupAcc :: (a -> s) -> (s -> a -> Maybe s) -> [a] -> [(s, [a])]
+groupAcc init f = groupAcc1'
+  where
+    groupAcc1' [] = []
+    groupAcc1' (x:xs) = takeGroup (init x) [x] xs
+
+    takeGroup state group [] = [(state, reverse group)]
+    takeGroup state group (y:ys) = case f state y of
+      Nothing -> (state, reverse group) : groupAcc1' (y:ys)
+      Just state' -> takeGroup state' (y : group) ys
+
+--------------------------------------------------------------------------------
+-- Img
 
 imgLoad :: FilePath -> Scale -> IO Img
 imgLoad path scale = (\img -> Img img scale) <$> P8.readImageRGBA8 path
@@ -54,74 +91,80 @@ instance Show Img where
   show = imgShowFull
 
 imgAllPixels :: Img -> [Coord]
-imgAllPixels img = [(x, y) | y <- [0..imgHeight img - 1], x <- [0..imgWidth img - 1]]
-
-imgInnerPixels :: Img -> [Coord]
-imgInnerPixels img = [(x, y) | y <- [1..imgHeight img - 2], x <- [1..imgWidth img - 2]]
+imgAllPixels img = range2d 0 0 (imgWidth img - 1) (imgHeight img - 1)
 
 --------------------------------------------------------------------------------
--- Number decoder
+-- Symbol decoder
 
-decodeSymbol :: Img -> Coord -> Maybe (Integer, Bool, Size)
-decodeSymbol img (x, y) = do
-  {-
-    Figure:
-       . . _ _ _ _ ,
-       . : # # # # ,   → x
-       _ # + + + + -
-       _ # + + + + -
-       _ # + + + + -
-       _ # + + + + -
-       , ? - - - - -
-
-         ↓
-         y
-
-     Legend:
-       . _ , - — black pixels
-       #       — white pixels
-       ?       — negativity bit
-       +       — binary data
-       :       — point (x, y). isOperator bit
-  -}
-
-  let px = imgPixel img
-
-  -- 1. Check that top left corner is empty (`.`)
-  assertMay $ not $ any px [(x-1, y-1), (x, y-1), (x-1, y)]
-
-  let isOperator = px (x, y)
-
-  -- 2. Calculate the size based on top and left edges (`_` and `#`)
-  let topLeft' i = (px (x + i, y - 1), px (x + i, y),
-                    px (x - 1, y + i), px (x,     y + i))
-  let topLeft = takeWhile (\i -> (False, True, False, True) == topLeft' i) $ [1..]
-  size <- lastMay topLeft
-  assertMay $ size >= 1
-
-  -- 3. Check the negativity bit (`?`) and empty space at corners (`,`)
-  negative <-
-    case topLeft' (size+1) of
-      (False, False, False, False) -> Just False
-      (False, False, False, True) -> Just True
-      otherwise -> Nothing
-
-  -- 4. Check that right and bottom edges are empty (`-`)
-  assertMay $ not $
-    any (\i -> px (x + size + 1, y+i) || px(x+i, y + size + 1)) [1 .. size+1]
-
-  -- 5. Decode binary data
-  let number = bitsToInteger [px (ix,iy) | iy <- [y+1 .. y+size], ix <- [x+1 .. x+size]]
-
-  Just $ if negative
-    then (-number, isOperator, (size+1, size+2))
-    else (number, isOperator, (size+1, size+1))
-
-bitsToInteger :: [Bool] -> Integer
-bitsToInteger = fst . foldl' f (0, 1)
+symDecode :: Img -> Coord -> Size -> Symbol
+symDecode img (x, y) (w, h)
+  | isNonNegativeNumber = SymNumber value
+  | isNegativeNumber = SymNumber (-value)
+  | isVariable = SymVariable varValue
+  | isOperator = SymOperator value
+  | isEllipsis = SymEllipsis
+  | otherwise = SymUnknown
   where
-    f (sum, bit) True = (sum + bit, bit*2)
-    f (sum, bit) False = (sum, bit*2)
+    size = w
+
+    px (x', y') = imgPixel img (x + x', y + y')
+
+    isNonNegativeNumber = True
+      && w == h
+      && not (px (0, 0))
+
+    isNegativeNumber = True
+      && w + 1 == h
+      && not (px (0, 0))
+      && px (0, size)
+      && none px [(x', size) | x' <- [1..size-1]] -- bottom + 1 is empty
+
+    isOperator = True
+      && w == h
+      && px (0, 0)
+
+    isVariable = True
+      && w == h
+      && px (1,1)
+      && all px [(x',     size-1) | x' <- [0..size-1]] -- bottom is full
+      && all px [(size-1, y')     | y' <- [0..size-1]] -- right is full
+      && none px [(x', 1) | x' <- [2..size-2]] -- top + 1 is empty
+      && none px [(1, y') | y' <- [2..size-2]] -- left + 1 is empty
+
+    isEllipsis = checkSymbol img symEllipsis (x-1, y-1)
+
+    value = bitsToInteger $ map px $ range2d 1 1 (size-1) (size-1)
+
+    varValue = bitsToInteger $ map (not . px) $ range2d 2 2 (size-2) (size-2)
+
+symDetectAll :: Img -> [(Coord, Size)]
+symDetectAll img = runST $ do
+  let width = imgWidth img
+  let height = imgHeight img
+  let validRange = range2d 2 2 (width - 3) (height - 3)
+  vec <- V.replicate (width * height) False
+
+  fmap catMaybes $ forM validRange $ \(x, y) -> do
+    val <- V.read vec (x + y * width)
+    if val
+    then return Nothing
+    else case symDetectSingle img (x, y) of
+      Nothing -> return Nothing
+      Just (w, h) -> do
+        forM_ [x' + y' * width | y' <- [y..y+h-1], x' <- [x .. x+w-1]]
+          $ \i -> V.write vec i True
+        return $ Just ((x, y), (w, h))
+
+symDetectSingle :: Img -> Coord -> Maybe Size
+symDetectSingle img (x, y)
+  | px 1 0 && px 0 1 = Just (width + 1, height + 1)
+  | checkSymbol img symEllipsis (x-1, y-1) = Just (7, 1)
+  | otherwise = Nothing
+    where
+      px x' y' = imgPixel img (x + x', y + y')
+      width = length $ takeWhile (flip px 0) [1..]
+      height = length $ takeWhile (px 0) [1..]
+
 
 sym :: [String] -> [[Bool]]
 sym = map (map (=='#'))
@@ -133,7 +176,7 @@ symEllipsis = sym
   ]
 
 checkLine :: Img -> [Bool] -> Coord -> Bool
-checkLine img [] _ = True
+checkLine _ [] _ = True
 checkLine img (h:t) (x, y) = (imgPixel img (x, y) == h) && checkLine img t (x+1, y)
 
 checkSymbol :: Img -> [[Bool]] -> Coord -> Bool
@@ -144,7 +187,7 @@ checkSymbol img (h:t) (x, y) = checkLine img h (x, y) && checkSymbol img t (x, y
 -- svg
 
 svg img annotations =
-  concat $ (
+  concat (
     svgHead img ++
     svgImgPoints img ++
     concatMap (\(coord,size,text,color) -> svgAnnotation coord size text color) annotations ++
@@ -160,7 +203,7 @@ svgHead img = [
     "<rect width='100%' height='100%' style='fill:black'/>\n"
   ]
 
-svgPoint img (x, y) value = [
+svgPoint (x, y) value = [
     "<rect x='", show (1 + x*8),
     "' y='", show (1 + y*8),
     "' width='7' height='7' style='fill:",
@@ -169,7 +212,7 @@ svgPoint img (x, y) value = [
   ]
 
 svgImgPoints img =
-  concatMap (\coord -> svgPoint img coord (imgPixel img coord)) $ imgAllPixels img
+  concatMap (\coord -> svgPoint coord (imgPixel img coord)) $ imgAllPixels img
 
 svgAnnotation :: Coord -> Size -> String -> String -> [String]
 svgAnnotation (x, y) (w, h) text color = [
@@ -189,39 +232,11 @@ svgAnnotation (x, y) (w, h) text color = [
 --------------------------------------------------------------------------------
 -- Main
 
-decodeAnnotate img coord@(x,y) = num <|> symEllipsis'
-  where
-    num = do
-      (value, isOperator, size) <- decodeSymbol img (x, y)
-      Just $ if isOperator
-      then (coord, size, showOperator value, "yellow")
-      else (coord, size, show value, "green")
-    
-    showOperator 0 = "ap"
-    showOperator 12 = "="
-    showOperator 401 = "dec"
-    showOperator 417 = "inc"
-    showOperator 365 = "add"
-
-    -- TODO: proper way of detecting of variables
-    showOperator 501 = "x0"
-    showOperator 485 = "x1"
-    showOperator 65193 = "x2"
-    showOperator 65161 = "x3"
-    showOperator 64745 = "x4"
-
-    showOperator n = ":" ++ show n
-
-    symEllipsis' = do
-      assertMay $ checkSymbol img symEllipsis (x, y)
-      Just ((x+1, y+1), (7, 1), "...", "gray")
-
 annotateImg :: Img -> String
 annotateImg img = id
   $ svg img
-  $ catMaybes
-  $ map (decodeAnnotate img)
-  $ imgInnerPixels img
+  $ map (symRepr' img)
+  $ symDetectAll img
 
 decodeImg :: Img -> String
 decodeImg img = id
@@ -230,13 +245,44 @@ decodeImg img = id
     $ map (map (intercalate " ")) -- join items inside each group
     $ map (map (map (\(_,_,text,_) -> text)))
     $ map (groupBy (\a b -> xRight a >= xLeft b - 2)) -- split by horisontal groups
-    $ groupOn (\((_,y),_,_,_) -> y) -- split by lines
-    $ catMaybes
-    $ map (decodeAnnotate img)
-    $ imgInnerPixels img
+    $ splitByLines
+    $ map (symRepr' img)
+    $ symDetectAll img
   where
     xLeft ((x,_),(_,_),_,_) = x
     xRight ((x,_),(w,_),_,_) = x + w
+
+splitByLines :: [(Coord, Size, a, b)] -> [[(Coord, Size, a, b)]]
+splitByLines = id
+  . map (sortOn (\((x,_),_,_,_) -> x))
+  . map concat
+  . map (map snd . snd) -- drop accumulators from both groupAcc's
+  . groupAcc fst (\s x -> addRanges s (fst x))
+  . groupAcc yRange (\s x -> addRanges s (yRange x))
+  where
+    yRange ((_,y),(_,h),_,_) = (y, y+h)
+    addRanges a@(a0, a1) b@(b0, b1)
+      | b0 <= a0 && a0 <= b1 = Just (b0, max a1 b1)
+      | a0 <= b0 && b0 <= a1 = Just (a0, max a1 b1)
+      | otherwise = Nothing
+
+symRepr :: Symbol -> (String, String)
+symRepr SymUnknown = ("?", "gray")
+symRepr SymEllipsis = ("...", "gray")
+symRepr (SymNumber val) = (show val, "green")
+symRepr (SymOperator val) = (t val, "yellow")
+  where t 0 = "ap"
+        t 12 = "="
+        t 401 = "dec"
+        t 417 = "inc"
+        t 365 = "add"
+        t val = ":" ++ show val
+symRepr (SymVariable val) = ("x" ++ show val, "blue")
+
+symRepr' img (coord, size) =
+  (coord, size, text, color)
+  where
+    (text, color) = symRepr $ symDecode img coord size
 
 main = do
   [fnameIn, fnameSvg, fnameTxt] <- getArgs

@@ -23,9 +23,7 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-.. todo::
-
-   Add an interpretation for the ninth message.
+Definition of the new glyph is consistent with the definition of multiplication.
 
 
 Decoded

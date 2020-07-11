@@ -21,4 +21,4 @@ Each row is one symbol. Columns are:
 .. image:: all_symbols.svg
    :width: 268px
 
-.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message2.rst
+.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/appendix.rst

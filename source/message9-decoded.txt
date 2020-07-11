@@ -1,8 +1,8 @@
-:146
-ap ap :146 4 2   =   8
-ap ap :146 3 4   =   12
-ap ap :146 3 -2   =   -6
-ap ap :146 x0 x1   =   ap ap :146 x1 x0
-ap ap :146 x0 0   =   0
-ap ap :146 x0 1   =   x0
+mul
+ap ap mul 4 2   =   8
+ap ap mul 3 4   =   12
+ap ap mul 3 -2   =   -6
+ap ap mul x0 x1   =   ap ap mul x1 x0
+ap ap mul x0 0   =   0
+ap ap mul x0 1   =   x0
 ...

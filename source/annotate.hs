@@ -273,6 +273,7 @@ symRepr (SymNumber val) = (show val, "green")
 symRepr (SymOperator val) = (t val, "yellow")
   where t 0 = "ap"
         t 12 = "="
+        t 146 = "mul"
         t 401 = "dec"
         t 417 = "inc"
         t 365 = "add"

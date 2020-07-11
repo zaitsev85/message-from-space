@@ -37,9 +37,14 @@ Decoded
 Code
 ----
 
-.. todo::
+Revised version of the Haskell code that supports the variable glyphs is published on the :ref:`message #3 page <message3-code>`.
 
-   Revise the :ref:`Haskell code <message3-code>` to support new glyphs from the ninth message.
+Contributed by Discord users @pink_snow and @fryguybob.
+
+Example output:
+
+.. image:: message9-annotated-full.svg
+   :width: 268px
 
 
 Once again, I encourage you to join our `chat server`_ to combine efforts and crack this message.

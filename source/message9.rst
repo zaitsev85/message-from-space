@@ -1,5 +1,5 @@
-#9. ???
-=======
+#9. Product
+===========
 
 .. note::
 
@@ -37,7 +37,7 @@ Decoded
 Code
 ----
 
-Revised version of the Haskell code that supports the variable glyphs is published on the :ref:`message #3 page <message3-code>`.
+Revised version of the Haskell code that supports the ``mul`` glyph is published on the :ref:`message #3 page <message3-code>`.
 
 Contributed by Discord users @pink_snow and @fryguybob.
 

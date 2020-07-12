@@ -1,5 +1,5 @@
-#10. ???
-========
+#10. Integer Division
+=====================
 
 .. note::
 
@@ -23,9 +23,7 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-.. todo::
-
-   Add an interpretation for the tenth message.
+The new operator is consistent with integer division which rounds toward zero.
 
 
 Decoded
@@ -37,10 +35,19 @@ Decoded
 Code
 ----
 
-.. todo::
+The :ref:`Haskell code <message3-code>` has been revised to decode the integer devision operator.
 
-   Revise the :ref:`Haskell code <message3-code>` to support new glyphs from the tenth message.
+.. literalinclude:: annotate10.hs.diff
+   :language: diff
 
+Example output:
+
+.. image:: message10-annotated-full.svg
+
+The full source code:
+
+.. literalinclude:: annotate10.hs
+   :language: haskell
 
 Once again, I encourage you to join our `chat server`_ to combine efforts and crack this message.
 

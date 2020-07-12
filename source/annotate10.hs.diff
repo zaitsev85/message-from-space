@@ -1,12 +1,12 @@
-*** annotate.hs	2020-07-12 17:07:24.668298867 +0000
---- annotate10.hs	2020-07-12 16:09:41.962799166 +0000
-***************
-*** 273,278 ****
---- 273,279 ----
-  symRepr (SymOperator val) = (t val, "yellow")
-    where t 0 = "ap"
-          t 12 = "="
-+         t 40 = "div"
-          t 146 = "mul"
-          t 401 = "dec"
-          t 417 = "inc"
+diff --git a/source/annotate.hs b/source/annotate.hs
+index 6a1e50e..21c4c11 100755
+--- a/source/annotate.hs
++++ b/source/annotate.hs
+@@ -273,6 +273,7 @@ symRepr (SymNumber val) = (show val, "green")
+ symRepr (SymOperator val) = (t val, "yellow")
+   where t 0 = "ap"
+         t 12 = "="
++        t 40 = "div"
+         t 146 = "mul"
+         t 401 = "dec"
+         t 417 = "inc"

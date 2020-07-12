@@ -44,11 +44,6 @@ Example output:
 
 .. image:: message10-annotated-full.svg
 
-The full source code:
-
-.. literalinclude:: annotate10.hs
-   :language: haskell
-
 Once again, I encourage you to join our `chat server`_ to combine efforts and crack this message.
 
 .. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message10.rst

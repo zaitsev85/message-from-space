@@ -49,6 +49,6 @@ if __name__ == '__main__':
 
     with open('index.rst', 'w') as index:
         for line in index_contents:
-            if 'todolist' in line:
+            if 'appendix' in line:
                 line = ('   message%d\n' % message_number) + line
             index.write(line)

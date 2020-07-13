@@ -1,4 +1,4 @@
-#3. Negative numbers
+#3. Negative Numbers
 ====================
 
 .. note::

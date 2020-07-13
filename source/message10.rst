@@ -5,6 +5,9 @@
 
    If you have any ideas or enhancements for this page, please `edit it on GitHub`_!
 
+Following documentation is a cooperative result combined from our `Discord chat`_ and numerous pull requests.
+Thanks to everyone who helped!
+
 
 Image
 -----
@@ -35,7 +38,7 @@ Decoded
 Code
 ----
 
-The :ref:`Haskell code <message3-code>` has been revised to decode the integer devision operator.
+The :ref:`Haskell code <message3-code>` has been revised to decode the integer division operator.
 
 .. literalinclude:: annotate10.hs.diff
    :language: diff
@@ -43,8 +46,8 @@ The :ref:`Haskell code <message3-code>` has been revised to decode the integer d
 Example output:
 
 .. image:: message10-annotated-full.svg
+   :width: 180px
 
-Once again, I encourage you to join our `chat server`_ to combine efforts and crack this message.
 
 .. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message10.rst
-.. _chat server: https://discord.gg/xvMJbas
+.. _Discord chat: https://discord.gg/xvMJbas

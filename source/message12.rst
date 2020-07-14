@@ -37,9 +37,12 @@ Decoded
 Code
 ----
 
-.. todo::
+The :ref:`Haskell code <message3-code>` has been revised to decode new glyphs.
 
-   Revise the :ref:`Haskell code <message3-code>` to support new glyphs from the twelfth message.
+Example output:
+
+.. image:: message11-annotated-full.svg
+   :width: 184px
 
 
 Once again, I encourage you to join our `chat server`_ to combine efforts and crack this message.

@@ -282,6 +282,8 @@ symRepr (SymOperator val) = (text, "yellow")
           , (365, "add")
           , (401, "dec")
           , (417, "inc")
+          -- comparisons
+          , (416, "lt")
           , (448, "eq")
           ]
 symRepr (SymVariable val) = ('x' : show val, "blue")

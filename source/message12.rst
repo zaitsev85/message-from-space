@@ -1,4 +1,4 @@
-#12. ???
+#12. Less Than
 ========
 
 .. note::
@@ -25,7 +25,7 @@ Interpretation
 
 .. todo::
 
-   Add an interpretation for the twelfth message.
+   The new operator is consistent with the *less than* operator (excluding equality).
 
 
 Decoded

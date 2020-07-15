@@ -25,6 +25,7 @@ Interpretation
 
 Operator 416 is consistent with checking whether the first number is strictly less than the second number. We will denote it as `lt`.
 
+
 Decoded
 -------
 

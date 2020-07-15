@@ -3,9 +3,9 @@ Message From Space
 
 This documentation contains artifacts from a joint deciphering effort of a mysterious radio transmission from outer space.
 
-To read the whole story, go to :doc:`personal-appeal`.
-
 To skip the investigation part and go straight to the results, go to :doc:`condensed-version`.
+
+To read the whole story, go to :doc:`personal-appeal`.
 
 .. toctree::
    :maxdepth: 1

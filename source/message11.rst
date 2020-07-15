@@ -1,4 +1,4 @@
-#11. Equality and booleans
+#11. Equality and Booleans
 ==========================
 
 .. include:: note.rst

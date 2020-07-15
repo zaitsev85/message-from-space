@@ -1,4 +1,4 @@
-#12. Strict less-than
+#12. Strict Less-Than
 =====================
 
 .. include:: note.rst

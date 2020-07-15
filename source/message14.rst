@@ -1,4 +1,4 @@
-#14. ???
+#14. Linear-to-grid
 ========
 
 .. include:: note.rst
@@ -25,7 +25,7 @@ Interpretation
 
 .. todo::
 
-   Add an interpretation for the fourteenth message.
+   This appears to define an inverse operator to that from image 13, demonstrating that :170 is the inverse of :341, and vice versa. This suggests that :341, when applied to a linear-encoded number, will create a grid-encoded number.
 
 
 Decoded

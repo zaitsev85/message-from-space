@@ -87,6 +87,10 @@ def setup(app):
             f.write('.. image:: message%d.png\n' % i)
             f.write('   :width: %dpx\n\n' % get_image_width(os.path.join(dirname, 'message%d.png' % i)))
 
+            if os.path.isfile(os.path.join(dirname, 'message%d-condensed.txt' % i)):
+                with open(os.path.join(dirname, 'message%d-condensed.txt' % i)) as c:
+                    f.write(c.read() + '\n')
+
             f.write('.. literalinclude:: message%d-decoded.txt\n\n\n' % i)
 
             i += 1

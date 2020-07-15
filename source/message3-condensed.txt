@@ -1,0 +1,1 @@
+Additional pixel in the vertical bar denotes a negative number.

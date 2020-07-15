@@ -24,5 +24,7 @@ To read the whole story, go to :doc:`personal-appeal`. Beware: pages may contain
    message10
    message11
    message12
+   message13
+   message14
    appendix
    todolist

@@ -5,7 +5,7 @@ This documentation contains artifacts from a joint deciphering effort of a myste
 
 To skip the investigation part and go straight to the results, go to :doc:`condensed-version`.
 
-To read the whole story, go to :doc:`personal-appeal`.
+To read the whole story, go to :doc:`personal-appeal`. Beware: pages may contain speculations and unproven theories!
 
 .. toctree::
    :maxdepth: 1

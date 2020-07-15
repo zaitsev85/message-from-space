@@ -1,12 +1,9 @@
 #3. Negative Numbers
 ====================
 
-.. note::
+.. include:: note.rst
 
-   If you have any ideas or enhancements for this page, please `edit it on GitHub`_!
-
-Following documentation is a cooperative result combined from our `Discord chat`_ and numerous pull requests.
-Thanks to everyone who helped!
+.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message3.rst
 
 
 Image
@@ -52,7 +49,3 @@ Example output:
 
 .. literalinclude:: annotate.hs
    :language: haskell
-
-
-.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message3.rst
-.. _Discord chat: https://discord.gg/xvMJbas

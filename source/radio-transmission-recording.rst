@@ -1,15 +1,13 @@
 #1. Numbers
 ===========
 
-.. note::
+.. include:: note.rst
 
-   If you have any ideas or enhancements for this page, please `edit it on GitHub`_!
+.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/radio-transmission-recording.rst
+
 
 :download:`Download <radio-transmission-recording.wav>` radio transmission recording.
 It was originally received at ~5 GHz and scaled down to ~500 Hz to make signal audible for humans.
-
-Following documentation is a cooperative result combined from our `Discord chat`_ and numerous pull requests.
-Thanks to everyone who helped!
 
 
 Spectrogram
@@ -75,6 +73,4 @@ Example output:
    :language: rust
 
 
-.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/radio-transmission-recording.rst
 .. _notebook: https://gist.github.com/nya3jp/5094571c5905783327f35e8df207c8ad#file-spectrogram-ipynb
-.. _Discord chat: https://discord.gg/xvMJbas

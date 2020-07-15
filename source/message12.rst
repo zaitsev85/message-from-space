@@ -1,9 +1,9 @@
 #12. Strict less-than
 =====================
 
-.. note::
+.. include:: note.rst
 
-   If you have any ideas or enhancements for this page, please `edit it on GitHub`_!
+.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message12.rst
 
 
 Image
@@ -40,9 +40,3 @@ Example output:
 
 .. image:: message12-annotated-full.svg
    :width: 184px
-
-
-Once again, I encourage you to join our `chat server`_ to combine efforts and crack this message.
-
-.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/message12.rst
-.. _chat server: https://discord.gg/xvMJbas

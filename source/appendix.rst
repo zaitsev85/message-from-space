@@ -1,9 +1,15 @@
 Appendix
 ========
 
-.. note::
+.. admonition:: Caution
+   :class: error
+   
+   This page is outdated.
 
-   If you have any ideas or enhancements for this page, please `edit it on GitHub`_!
+.. include:: note.rst
+
+.. _edit it on GitHub: https://github.com/zaitsev85/message-from-space/blob/master/source/appendix.rst
+
 
 Dictionary
 ----------

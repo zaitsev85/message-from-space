@@ -1,4 +1,4 @@
-#13. ???
+#13. Grid-to-linear
 ========
 
 .. include:: note.rst
@@ -25,8 +25,7 @@ Interpretation
 
 .. todo::
 
-   Add an interpretation for the thirteenth message.
-
+   The operator defined in message 13 is for converting numbers from a grid form into a linear form. The linear encoding is [so far] unknown, but may be some form of [Variable-length encoding](https://en.wikipedia.org/wiki/Variable-length_quantity)
 
 Decoded
 -------

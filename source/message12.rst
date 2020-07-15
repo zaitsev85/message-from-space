@@ -23,10 +23,7 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-.. todo::
-
-   Add an interpretation for the twelfth message.
-
+Operator 416 is consistent with checking whether the first number is strictly less than the second number. We will denote it as `lt`.
 
 Decoded
 -------
@@ -41,7 +38,7 @@ The :ref:`Haskell code <message3-code>` has been revised to decode new glyphs.
 
 Example output:
 
-.. image:: message11-annotated-full.svg
+.. image:: message12-annotated-full.svg
    :width: 184px
 
 

@@ -14,7 +14,7 @@ Note that during the execution it sometimes uses the :doc:`send <message15>` fun
 
 
     // mathematical function call notation
-    f38(protocol, (flag, newState, data)) = if a == 0
+    f38(protocol, (flag, newState, data)) = if flag == 0
                     then (modem(newState), multipledraw(data))
                     else interact(protocol, modem(newState), send(data))
     interact(protocol, state, vector) = f38(protocol, protocol(state, vector))

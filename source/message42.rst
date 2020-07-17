@@ -21,6 +21,12 @@ Interpretation
 .. include:: message42-condensed.txt
 
 
+Huge Transmission Text
+----------------------
+
+:download:`Download <galaxy.txt>` the textual representation of the large transmission.
+
+
 Decoded
 -------
 

@@ -1,4 +1,4 @@
-#16. ???
+#16. Negation
 ========
 
 .. include:: note-discord.rst
@@ -17,6 +17,8 @@ This image was produced from the sixteenth radio transmission using :doc:`previo
 
 Interpretation
 --------------
+
+Operator :10 (*neg*) converts from negative to positive, and vice versa.
 
 .. include:: message16-condensed.txt
 

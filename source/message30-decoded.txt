@@ -1,7 +1,7 @@
-? ? ? ?
-? ? ?   =   nil
-? ? x0 ?   =   ap ap cons x0 nil
-? ? x0 ? x1 ?   =   ap ap cons x0 ap ap cons x1 nil
-? ? x0 ? x1 ? x2 ?   =   ap ap cons x0 ap ap cons x1 ap ap cons x2 nil
-? ? x0 ? x1 ? x2 ? x5 ?   =   ap ap cons x0 ap ap cons x1 ap ap cons x2 ap ap cons x5 nil
+( , )
+( )   =   nil
+( x0 )   =   ap ap cons x0 nil
+( x0 , x1 )   =   ap ap cons x0 ap ap cons x1 nil
+( x0 , x1 , x2 )   =   ap ap cons x0 ap ap cons x1 ap ap cons x2 nil
+( x0 , x1 , x2 , x5 )   =   ap ap cons x0 ap ap cons x1 ap ap cons x2 ap ap cons x5 nil
 ...

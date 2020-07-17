@@ -1,1 +1,1 @@
-TODO: fix decoded text?
+Special syntax for list construction.

@@ -1,5 +1,5 @@
-#38. interact
-==============
+#38. Interact
+=============
 
 .. include:: note-discord.rst
 

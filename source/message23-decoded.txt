@@ -1,25 +1,25 @@
 :68191693600
-:68191693600   =   ap ap s ap ap :6 ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1
-ap :68191693600 0   =   ap ap ap s ap ap :6 ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1 0
-ap :68191693600 0   =   ap ap ap ap :6 ap eq 0 1 0 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 0
+:68191693600   =   ap ap s ap ap flip ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1
+ap :68191693600 0   =   ap ap ap s ap ap flip ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1 0
+ap :68191693600 0   =   ap ap ap ap flip ap eq 0 1 0 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 0
 ap :68191693600 0   =   ap ap ap ap eq 0 0 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 0
 ap :68191693600 0   =   ap ap t 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 0
 ap :68191693600 0   =   1
-ap :68191693600 1   =   ap ap ap s ap ap :6 ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1 1
-ap :68191693600 1   =   ap ap ap ap :6 ap eq 0 1 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 1
+ap :68191693600 1   =   ap ap ap s ap ap flip ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1 1
+ap :68191693600 1   =   ap ap ap ap flip ap eq 0 1 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 1
 ap :68191693600 1   =   ap ap ap ap eq 0 1 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 1
 ap :68191693600 1   =   ap ap f 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 1
 ap :68191693600 1   =   ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 1
 ap :68191693600 1   =   ap ap mul 2 ap ap ap b :68191693600 ap add -1 1
 ap :68191693600 1   =   ap ap mul 2 ap :68191693600 ap ap add -1 1
-ap :68191693600 1   =   ap ap mul 2 ap ap ap s ap ap :6 ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1 ap ap add -1 1
-ap :68191693600 1   =   ap ap mul 2 ap ap ap ap :6 ap eq 0 1 ap ap add -1 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 ap ap add -1 1
+ap :68191693600 1   =   ap ap mul 2 ap ap ap s ap ap flip ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1 ap ap add -1 1
+ap :68191693600 1   =   ap ap mul 2 ap ap ap ap flip ap eq 0 1 ap ap add -1 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 ap ap add -1 1
 ap :68191693600 1   =   ap ap mul 2 ap ap ap ap eq 0 ap ap add -1 1 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 ap ap add -1 1
 ap :68191693600 1   =   ap ap mul 2 ap ap ap ap eq 0 0 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 ap ap add -1 1
 ap :68191693600 1   =   ap ap mul 2 ap ap t 1 ap ap ap b ap mul 2 ap ap b :68191693600 ap add -1 ap ap add -1 1
 ap :68191693600 1   =   ap ap mul 2 1
 ap :68191693600 1   =   2
-ap :68191693600 2   =   ap ap ap s ap ap :6 ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1 2
+ap :68191693600 2   =   ap ap ap s ap ap flip ap eq 0 1 ap ap b ap mul 2 ap ap b :68191693600 ap add -1 2
 ...
 ap :68191693600 2   =   4
 ap :68191693600 3   =   8

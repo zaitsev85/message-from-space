@@ -1,1 +1,1 @@
-TODO: fix decoded text?
+Apply :doc:`message13` to a list constructed with :doc:`message25` or :doc:`message30`.

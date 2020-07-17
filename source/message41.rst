@@ -1,5 +1,5 @@
-#41. ???
-========
+#41. Interactive draw protocol
+==============================
 
 .. include:: note-discord.rst
 

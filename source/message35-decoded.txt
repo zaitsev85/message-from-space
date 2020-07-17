@@ -1,9 +1,9 @@
-mod :64170
+mod cons
 ap mod :14   =
-ap mod ap ap :64170 :14 :14   =   [0]
-ap mod ap ap :64170 0 :14   =   [0]
-ap mod ap ap :64170 1 2   =   [-22]
-ap mod ap ap :64170 1 ap ap :64170 2 :14   =   [-29]
+ap mod ap ap cons :14 :14   =   [0]
+ap mod ap ap cons 0 :14   =   [0]
+ap mod ap ap cons 1 2   =   [-22]
+ap mod ap ap cons 1 ap ap cons 2 :14   =   [-29]
 ap mod ? ? 1 ? 2 ?   =   [-29]
 ap mod ? ? 1 ? ? ? 2 ? 3 ?   ? 4 ?   =   [-31]
 ...

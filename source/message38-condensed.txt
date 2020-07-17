@@ -1,1 +1,2 @@
-TODO: fix decoded text?
+Is a function that takes an "interaction-protocol", some data (maybe "protocol" dependent), and some pixel. 
+It returns some new data, and a list of canvases (images).

@@ -1,1 +1,1 @@
-Decoded as ``t``, because it has a meaning of boolean true.
+Decoded as ``t``, because it has a meaning of boolean True.

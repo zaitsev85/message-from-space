@@ -173,7 +173,6 @@ symDetectSingle :: Img -> Coord -> Maybe Size
 symDetectSingle img (x, y)
   | checkSymbol img symModulatedNonNeg (x, y) = Just (modulatedWidth, 2)
   | checkSymbol img symModulatedNeg (x, y) = Just (modulatedWidth, 2)
-  | px 0 0 && not (px 1 0) && not (px 0 1) && px 1 1 = Just (modulatedWidth, 2)
   | px 1 0 && px 0 1 = Just (gridWidth + 1, gridHeight + 1)
   | checkSymbol img symEllipsis (x-1, y-1) = Just (7, 1)
   | otherwise = Nothing

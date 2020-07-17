@@ -1,4 +1,4 @@
-#23. ???
+#23. 2_POW
 ========
 
 .. include:: note-discord.rst

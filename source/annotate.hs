@@ -403,6 +403,8 @@ symRepr (SymOperator val) = (text, "yellow")
           , ( 33047056, "draw")
           , ( 17043521, "vec")
           , ( 68259412260, "multipledraw" )
+          , (33053392, "interact")
+          , (7110656, "modem")
           ]
 symRepr (SymBox w h val) = ('#' : show w ++ ":" ++ show h ++ ":" ++ showHex val "", "orange")
 symRepr (SymVariable val) = ('x' : show val, "blue")

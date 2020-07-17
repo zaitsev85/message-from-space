@@ -1,5 +1,5 @@
-#18. ???
-========
+#18. S Combinator
+=================
 
 .. include:: note-discord.rst
 

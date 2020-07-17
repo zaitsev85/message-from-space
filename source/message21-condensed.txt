@@ -1,1 +1,1 @@
-TODO: fix decoded text?
+Decoded as ``t``, because it has a meaning of boolean true.

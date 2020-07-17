@@ -1,6 +1,6 @@
 ap :33053392 :67108929
-ap ap :67108929 x0 x1   =   ? ? 0 ? ap ap :64170 x1 x0 ? ? ? ap ap :64170 x1 x0 ?   ?
-:67108929   =   ap ap :5 ap :5 ap ap :7 ap ap :5 ap :5 ap :64170 0 ap ap :6 ap ap :5 :5 :64170 ap ap :6 :64170 :14 ap ap :6 :64170 :14 ap :6 :64170
+ap ap :67108929 x0 x1   =   ? ? 0 ? ap ap cons x1 x0 ? ? ? ap ap cons x1 x0 ?   ?
+:67108929   =   ap ap b ap b ap ap s ap ap b ap b ap cons 0 ap ap c ap ap b b cons ap ap c cons :14 ap ap c cons :14 ap c cons
 ap ap ap :33053392 :67108929 :14 ap ap :17043521 0 0   =   ? ? ? ? ap ap :17043521 0 0 ?   ? ? ? ?   ?   ?
 ap ap ap :33053392 :67108929 ? ? ap ap :17043521 0 0 ?   ap ap :17043521 2 3   =   ? ? x2 ? ? ? ?   ?   ?
 ap ap ap :33053392 :67108929 x2 ap ap :17043521 1 2   =   ? ? x3 ? ? ? ?   ?   ?

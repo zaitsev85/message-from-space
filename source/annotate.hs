@@ -11,9 +11,11 @@ import Control.Monad.ST (runST)
 import Control.Monad.Trans (lift)
 import Control.Monad.Trans.Maybe (runMaybeT)
 import Data.List (foldl', intercalate, sortOn)
+import Data.List.Extra (replace)
 import Data.List.GroupBy (groupBy)
 import Data.Maybe (catMaybes, fromMaybe)
 import Data.Word (Word16)
+import Numeric (showHex)
 import System.Environment (getArgs)
 import qualified Codec.Picture as P
 import qualified Codec.Picture.RGBA8 as P8
@@ -34,6 +36,8 @@ data Symbol
   | SymOperator Integer
   | SymVariable Integer
   | SymEllipsis
+  | SymSpecial String
+  | SymBox Int Int Integer
   | SymUnknown
 
 --------------------------------------------------------------------------------
@@ -106,7 +110,11 @@ symDecode img (x, y) (w, h)
   | isModulatedNumber = SymModulatedNumber modulatedValue
   | isVariable = SymVariable varValue
   | isOperator = SymOperator value
+  | isBox = SymBox (w-2) (h-2) boxValue
   | isEllipsis = SymEllipsis
+  | checkSymbol img symOpenPar (x-1, y-1) = SymSpecial "<"
+  | checkSymbol img symClosePar (x-1, y-1) = SymSpecial ">"
+  | checkSymbol img symPipe (x-1, y-1) = SymSpecial "|"
   | otherwise = SymUnknown
   where
     size = w
@@ -129,11 +137,20 @@ symDecode img (x, y) (w, h)
 
     isVariable = True
       && w == h
+      && size >= 4
       && px (1, 1)
       && all px [(x',     size-1) | x' <- [0 .. size-1]] -- bottom is full
       && all px [(size-1, y')     | y' <- [0 .. size-1]] -- right is full
       && none px [(x', 1) | x' <- [2 .. size-2]] -- top + 1 is empty
       && none px [(1, y') | y' <- [2 .. size-2]] -- left + 1 is empty
+
+    isBox = True
+      && not (px (0,   0))
+      && not (px (w-1, 0))
+      && not (px (0,   h-1))
+      && not (px (w-1, h-1))
+      && all px [(x',  h-1) | x' <- [1 .. w-2]] -- bottom is full
+      && all px [(w-1, y')  | y' <- [1 .. h-2]] -- right is full
 
     isEllipsis = checkSymbol img symEllipsis (x-1, y-1)
 
@@ -146,6 +163,8 @@ symDecode img (x, y) (w, h)
     value = bitsToInteger $ map px $ range2d 1 1 (size-1) (size-1)
 
     varValue = bitsToInteger $ map (not . px) $ range2d 2 2 (size-2) (size-2)
+
+    boxValue = bitsToInteger $ map px $ range2d 1 1 (w-2) (h-2)
 
     modulatedSign = if isModulatedNonNeg then 1 else (-1)
 
@@ -173,14 +192,20 @@ symDetectSingle :: Img -> Coord -> Maybe Size
 symDetectSingle img (x, y)
   | checkSymbol img symModulatedNonNeg (x, y) = Just (modulatedWidth, 2)
   | checkSymbol img symModulatedNeg (x, y) = Just (modulatedWidth, 2)
-  | px 1 0 && px 0 1 = Just (gridWidth + 1, gridHeight + 1)
+  | px 1 0 && px 0 1 && nothingBelow = Just (gridWidth + 1, gridHeight + 1)
+  | not (px 0 0) && px 1 0 && px 0 1 && isBox = Just (gridWidth + 2, gridHeight + 2)
   | checkSymbol img symEllipsis (x-1, y-1) = Just (7, 1)
+  | checkSymbol img symOpenPar (x-1, y-1) = Just (3, 5)
+  | checkSymbol img symClosePar (x-1, y-1) = Just (3, 5)
+  | checkSymbol img symPipe (x-1, y-1) = Just (2, 5)
   | otherwise = Nothing
   where
     px x' y' = imgPixel img (x + x', y + y')
     gridWidth = length $ takeWhile (flip px 0) [1 ..]
     gridHeight = length $ takeWhile (px 0) [1 ..]
     modulatedWidth = length $ takeWhile (\x -> px x 0 || px x 1) [0 ..]
+    nothingBelow = none (\x -> px x (gridHeight+1)) [0..gridWidth]
+    isBox = all (\i -> px (gridWidth+1) i) [1..gridHeight-1]
 
 symEllipsis :: [[Bool]]
 symEllipsis = map (map (=='#'))
@@ -200,6 +225,39 @@ symModulatedNeg :: [[Bool]]
 symModulatedNeg = map (map (=='#'))
   [ "#."
   , ".#"
+  ]
+
+symOpenPar :: [[Bool]]
+symOpenPar = map (map (=='#'))
+  [ "....."
+  , "...#."
+  , "..##."
+  , ".###."
+  , "..##."
+  , "...#."
+  , "....."
+  ]
+
+symClosePar :: [[Bool]]
+symClosePar = map (map (=='#'))
+  [ "....."
+  , ".#.."
+  , ".##."
+  , ".###"
+  , ".##."
+  , ".#.."
+  , "...."
+  ]
+
+symPipe :: [[Bool]]
+symPipe = map (map (=='#'))
+  [ "...."
+  , ".##."
+  , ".##."
+  , ".##."
+  , ".##."
+  , ".##."
+  , "...."
   ]
 
 checkLine :: Img -> [Bool] -> Coord -> Bool
@@ -257,8 +315,9 @@ svgAnnotation (x, y) (w, h) text color = [
     "' y='", show (1 + y*8 + h*4),
     "' dominant-baseline='middle' text-anchor='middle' fill='white' style='",
     "paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;",
-    "'>", text, "</text>\n"
+    "'>", text', "</text>\n"
   ]
+  where text' = replace "<" "&lt;" text
 
 --------------------------------------------------------------------------------
 -- Main
@@ -299,6 +358,7 @@ splitByLines = id
 
 symRepr :: Symbol -> (String, String)
 symRepr SymUnknown = ("?", "gray")
+symRepr (SymSpecial x) = (x, "gray")
 symRepr SymEllipsis = ("...", "gray")
 symRepr (SymNumber val) = (show val, "green")
 symRepr (SymModulatedNumber val) = ("[" ++ show val ++ "]", "purple")
@@ -323,6 +383,7 @@ symRepr (SymOperator val) = (text, "yellow")
           , (416, "lt")
           , (448, "eq")
           ]
+symRepr (SymBox w h val) = ('#' : show w ++ ":" ++ show h ++ ":" ++ showHex val "", "orange")
 symRepr (SymVariable val) = ('x' : show val, "blue")
 
 symRepr' :: Img -> (Coord, Size) -> (Coord, Size, String, String)

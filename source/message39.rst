@@ -1,5 +1,5 @@
-#39. ???
-========
+#39. Interaction protocol
+=========================
 
 .. include:: note-discord.rst
 

@@ -105,6 +105,9 @@ imgAllPixels img = range2d 0 0 (imgWidth img - 1) (imgHeight img - 1)
 
 symDecode :: Img -> Coord -> Size -> Symbol
 symDecode img (x, y) (w, h)
+  | checkSymbol img symGalaxy (x, y) = SymSpecial "galaxy"
+  | checkSymbol img symHuman (x, y) = SymSpecial "human"
+  | checkSymbol img symSpacecraft (x, y) = SymSpecial "spacecraft"
   | isNonNegativeNumber = SymNumber value
   | isNegativeNumber = SymNumber (-value)
   | isModulatedNumber = SymModulatedNumber modulatedValue
@@ -198,6 +201,9 @@ symDetectSingle img (x, y)
   | checkSymbol img symOpenPar (x-1, y-1) = Just (3, 5)
   | checkSymbol img symClosePar (x-1, y-1) = Just (3, 5)
   | checkSymbol img symPipe (x-1, y-1) = Just (2, 5)
+  | checkSymbol img symGalaxy (x, y) = Just (7, 7)
+  | checkSymbol img symHuman (x, y) = Just (7, 7)
+  | checkSymbol img symSpacecraft (x, y) = Just (7, 7)
   | otherwise = Nothing
   where
     px x' y' = imgPixel img (x + x', y + y')
@@ -258,6 +264,39 @@ symPipe = map (map (=='#'))
   , ".##."
   , ".##."
   , "...."
+  ]
+
+symGalaxy :: [[Bool]]
+symGalaxy = map (map (=='#'))
+  [ "..###.."
+  , ".....#."
+  , ".###..#"
+  , "#.#.#.#"
+  , "#..###."
+  , " #....."
+  , "..###.."
+  ]
+
+symHuman :: [[Bool]]
+symHuman = map (map (=='#'))
+  [ "..#.#.."
+  , "..#.#.."
+  , "..###.."
+  , "..###.."
+  , "..###.."
+  , "#######"
+  , "...#..."
+  ]
+
+symSpacecraft :: [[Bool]]
+symSpacecraft = map (map (=='#'))
+  [ "...#..."
+  , ".#####."
+  , ".#...#."
+  , "##...##"
+  , "##.#.##"
+  , ".#####."
+  , "#.#.#.#"
   ]
 
 checkLine :: Img -> [Bool] -> Coord -> Bool

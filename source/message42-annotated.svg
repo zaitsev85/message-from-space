@@ -542,15 +542,11 @@
 <rect x='11' y='11' width='27' height='27' style='fill:yellow;opacity:0.5'/>
 <text x='25' y='25' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>ap</text>
 <rect x='43' y='11' width='59' height='59' style='fill:yellow;opacity:0.5'/>
-<text x='73' y='41' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:33053392</text>
-<rect x='139' y='11' width='27' height='27' style='fill:purple;opacity:0.5'/>
-<text x='153' y='25' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>[0]</text>
+<text x='73' y='41' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>interact</text>
+<rect x='107' y='11' width='67' height='67' style='fill:gray;opacity:0.5'/>
+<text x='141' y='45' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>galaxy</text>
 <rect x='211' y='11' width='35' height='35' style='fill:yellow;opacity:0.5'/>
 <text x='229' y='29' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>=</text>
 <rect x='315' y='19' width='67' height='19' style='fill:gray;opacity:0.5'/>
 <text x='349' y='29' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>...</text>
-<rect x='107' y='27' width='51' height='43' style='fill:gray;opacity:0.5'/>
-<text x='133' y='49' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>?</text>
-<rect x='147' y='35' width='27' height='27' style='fill:green;opacity:0.5'/>
-<text x='161' y='49' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>0</text>
 </svg>

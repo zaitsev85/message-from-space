@@ -1,4 +1,4 @@
-#41. Stateful draw protocol
+#41. Stateful Drawing Protocol
 ==============================
 
 .. include:: note-discord.rst

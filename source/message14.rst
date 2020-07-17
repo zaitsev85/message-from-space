@@ -1,5 +1,5 @@
-#14. Linear-to-grid
-========
+#14. Demodulate
+===============
 
 .. include:: note.rst
 
@@ -23,9 +23,10 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-This appears to define an inverse operator to that from image 13, demonstrating that :341 (*lin*) is the inverse of :170 (*grd*), and vice versa. This suggests that :341, when applied to a linear-encoded number, will create a grid-encoded number.
+This appears to define an inverse operator to that from :doc:`message13`, demonstrating that ``:341`` (``mod``) is the inverse of ``:170`` (``dem``), and vice versa. This suggests that ``:341``, when applied to a linear-encoded number, will create a grid-encoded number.
 
-The behaviour of *lin* when applied to a linear number, or *grd* when applied to a grid number, is *not* defined.
+The behaviour of ``mod`` when applied to a linear number, or ``dem`` when applied to a grid number, is *not* defined.
+
 
 Decoded
 -------
@@ -36,6 +37,9 @@ Decoded
 Code
 ----
 
-.. todo::
+The :ref:`Haskell code <message3-code>` has been revised to decode new glyphs.
 
-   Revise the :ref:`Haskell code <message3-code>` to support new glyphs from the fourteenth message.
+Example output:
+
+.. image:: message14-annotated-full.svg
+   :width: 188px

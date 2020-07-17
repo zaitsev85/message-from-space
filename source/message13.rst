@@ -1,5 +1,5 @@
-#13. Grid-to-linear
-========
+#13. Modulate
+=============
 
 .. include:: note.rst
 
@@ -23,9 +23,9 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-The operator defined in message 13, *lin*, is for converting numbers from a grid form into a linear-encoded form. The linear encoding appears to be a type of [Variable-length encoding](https://en.wikipedia.org/wiki/Variable-length_quantity), with the following form:
+The operator defined in this message, ``mod``, is for converting numbers from a grid form into a linear-encoded form. The linear encoding appears to be a type of `Variable-length encoding`_, with the following form:
 
-* Bits 0..1 define a positive or negative number [and signal width] via a high/low or low/high signal change:
+* Bits 0..1 define a positive or negative number (and signal width) via a high/low or low/high signal change:
 
   * 01: positive number
   * 10: negative number
@@ -38,7 +38,7 @@ The operator defined in message 13, *lin*, is for converting numbers from a grid
   * 1110: 12-bit number [i.e. 1-4095]
   * ...
      
-* The remaining bits, i.e. (n + 3)..(n + 3 + 4*n - 1), determine the number itself, in most-significant-bit first binary notation. Using the examples from message 13:
+* The remaining bits, i.e. (n + 3)..(n + 3 + 4*n - 1), determine the number itself, in most-significant-bit first binary notation. Using the examples from this message:
 
   * 0001: 1
   * 00010000: 16
@@ -46,6 +46,9 @@ The operator defined in message 13, *lin*, is for converting numbers from a grid
   * ...
 
 With this encoding, the number zero only requires three bits (i.e. 010), but arbitrarily large numbers can also be represented.
+
+.. _Variable-length encoding: https://en.wikipedia.org/wiki/Variable-length_quantity
+
 
 Decoded
 -------
@@ -56,6 +59,9 @@ Decoded
 Code
 ----
 
-.. todo::
+The :ref:`Haskell code <message3-code>` has been revised to decode new glyphs.
 
-   Revise the :ref:`Haskell code <message3-code>` to support new glyphs from the thirteenth message.
+Example output:
+
+.. image:: message13-annotated-full.svg
+   :width: 204px

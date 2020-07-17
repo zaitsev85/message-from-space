@@ -1,4 +1,4 @@
-#30. ???
+#30. List construction syntax
 ========
 
 .. include:: note-discord.rst

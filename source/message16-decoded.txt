@@ -1,7 +1,7 @@
-:10
-ap :10 0   =   0
-ap :10 1   =   -1
-ap :10 -1   =   1
-ap :10 2   =   -2
-ap :10 -2   =   2
+neg
+ap neg 0   =   0
+ap neg 1   =   -1
+ap neg -1   =   1
+ap neg 2   =   -2
+ap neg -2   =   2
 ...

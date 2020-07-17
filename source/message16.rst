@@ -1,5 +1,5 @@
-#16. ???
-========
+#16. Negate
+===========
 
 .. include:: note-discord.rst
 

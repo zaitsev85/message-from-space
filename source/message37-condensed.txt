@@ -1,2 +1,1 @@
-A function `if0`
-Compare 1st argument to 0 and pick 2nd, else 3rd
+Function ``if0`` compares the first argument to 0 and picks the second argument if equal, else third.

@@ -1,4 +1,4 @@
-#32. draw
+#32. Draw
 =========
 
 .. include:: note-discord.rst

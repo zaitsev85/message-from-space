@@ -1,4 +1,4 @@
-#17. Function application
+#17. Function Application
 =========================
 
 .. include:: note-discord.rst

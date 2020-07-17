@@ -1,4 +1,4 @@
-#23. Power of two
+#23. Power of Two
 =================
 
 .. include:: note-discord.rst

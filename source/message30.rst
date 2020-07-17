@@ -1,5 +1,5 @@
-#30. List construction syntax
-========
+#30. List Construction Syntax
+=============================
 
 .. include:: note-discord.rst
 

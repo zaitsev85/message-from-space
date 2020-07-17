@@ -1,5 +1,5 @@
 #25. Cons (or Pair)
-=========
+===================
 
 .. include:: note-discord.rst
 

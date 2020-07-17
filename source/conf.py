@@ -77,6 +77,10 @@ def setup(app):
         f.write('Condensed Version\n')
         f.write('=================\n\n')
 
+        f.write('.. note::\n\n')
+        f.write('   Following documentation was generated automatically using a script contributed in our `Discord chat`_. Decoded text representation may contain inaccuracies and will be revised with help from our participants.\n\n')
+        f.write('.. _Discord chat: https://discord.gg/xvMJbas\n\n')
+
         i = 1
         while os.path.isfile(os.path.join(dirname, 'message%d.png' % i)):
             with open(os.path.join(dirname, 'message%d.rst' % i)) as m:

@@ -1,0 +1,7 @@
+t
+ap ap t x0 x1   =   x0
+ap ap t 1 5   =   1
+ap ap t t x0   =   t
+ap ap t t ap inc 5   =   t
+ap ap t ap inc 5 t   =   6
+...

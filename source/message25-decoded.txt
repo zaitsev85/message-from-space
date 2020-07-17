@@ -1,0 +1,2 @@
+:64170
+ap ap ap :64170 x0 x1 x2   =   ap ap x2 x0 x1

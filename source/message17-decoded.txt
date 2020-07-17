@@ -1,0 +1,13 @@
+ap
+ap inc ap inc 0   =   2
+ap inc ap inc ap inc 0   =   3
+ap inc ap dec x0   =   x0
+ap dec ap inc x0   =   x0
+ap dec ap ap add x0 1   =   x0
+ap ap add ap ap add 2 3 4   =   9
+ap ap add 2 ap ap add 3 4   =   9
+ap ap add ap ap mul 2 3 4   =   10
+ap ap mul 2 ap ap add 3 4   =   14
+inc   =   ap add 1
+dec   =   ap add ap :10 1
+...

@@ -1,0 +1,5 @@
+:7
+ap ap ap :7 x0 x1 x2   =   ap ap x0 x2 ap x1 x2
+ap ap ap :7 add inc 1   =   3
+ap ap ap :7 mul ap add 1 6   =   42
+...

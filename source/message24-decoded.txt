@@ -1,7 +1,7 @@
-x0
-ap x0 x0   =   x0
-ap x0 1   =   1
-ap x0 x0   =   x0
-ap x0 add   =   add
-ap x0 ap add 1   =   ap add 1
+id
+ap id x0   =   x0
+ap id 1   =   1
+ap id x0   =   x0
+ap id add   =   add
+ap id ap add 1   =   ap add 1
 ...

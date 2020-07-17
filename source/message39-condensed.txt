@@ -1,2 +1,2 @@
 Start the protocol passing ``nil`` as the initial state and ``(0, 0)`` as the initial point.
-Then iterate the protocol passing states and points obtained from the previous execution.
+Then iterate the protocol passing new points along with states obtained from the previous execution.

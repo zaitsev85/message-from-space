@@ -336,6 +336,8 @@ symRepr (SymOperator val) = (text, "yellow")
           , (64170, "cons")
           , (64174, "car")
           , (64171, "cdr")
+          -- misc
+          , ( 174, "send" )
           ]
 symRepr (SymVariable val) = ('x' : show val, "blue")
 

@@ -1,8 +1,8 @@
-:33047056
-ap :33047056 ? ? ?   =   ?
-ap :33047056 ? ? ap ap vec 1 1 ?   =   ?
-ap :33047056 ? ? ap ap vec 1 2 ?   =   ?
-ap :33047056 ? ? ap ap vec 2 5 ?   =   ?
-ap :33047056 ? ? ap ap vec 1 2 ? ap ap vec 3 1 ?   =   ?
-ap :33047056 ? ? ap ap vec 5 3 ? ap ap vec 6 3 ? ap ap vec 4 4 ? ap ap vec 6 4 ? ap ap vec 4 5 ?   =   ?
+draw
+ap draw ( )   =   |picture1|
+ap draw ( ap ap vec 1 1 )   =   |picture2|
+ap draw ( ap ap vec 1 2 )   =   |picture3|
+ap draw ( ap ap vec 2 5 )   =   |picture4|
+ap draw ( ap ap vec 1 2 , ap ap vec 3 1 )   =   |picture5|
+ap draw ( ap ap vec 5 3 , ap ap vec 6 3 , ap ap vec 4 4 , ap ap vec 6 4 , ap ap vec 4 5 )   =   |picture6|
 ...

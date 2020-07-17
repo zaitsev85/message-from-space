@@ -25,7 +25,7 @@ Interpretation
 
 Operator 448 is consistent with checking whether the first number equal than the second number. We will denote it as `eq`.
 
-Operator 2 is consistent with `true` and operator 8 is consistent with `false`.
+Operator 2 is consistent with true and operator 8 is consistent with false. We will denote it as `t` and `f` respectively.
 
 
 Decoded

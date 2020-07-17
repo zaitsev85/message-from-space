@@ -118,6 +118,7 @@ symDecode img (x, y) (w, h)
       && not (px (0, 0))
 
     isNegativeNumber = True
+      && size >= 2
       && w + 1 == h
       && not (px (0, 0))
       && px (0, size)
@@ -128,6 +129,7 @@ symDecode img (x, y) (w, h)
       && px (0, 0)
 
     isVariable = True
+      && size >= 4
       && w == h
       && px (1, 1)
       && all px [(x',     size-1) | x' <- [0 .. size-1]] -- bottom is full
@@ -311,10 +313,12 @@ symRepr (SymOperator val) = (text, "yellow")
           , (2, "t")
           , (8, "f")
           -- unary operators
+          , (10, "neg")
           , (401, "dec")
           , (417, "inc")
           , (170, "mod")
           , (341, "dem")
+          , (68191693600, "pwr2")
           -- binary operators
           , (40, "div")
           , (146, "mul")
@@ -322,10 +326,16 @@ symRepr (SymOperator val) = (text, "yellow")
           -- comparisons
           , (416, "lt")
           , (448, "eq")
+            -- combinators
           -- B,C,K,W-system (https://en.wikipedia.org/wiki/B,_C,_K,_W_system)
           , (6, "c")
           , (5, "b")
           , (7, "s")
+          , (1, "i")
+          -- lists
+          , (64170, "cons")
+          , (64174, "car")
+          , (64171, "cdr")
           ]
 symRepr (SymVariable val) = ('x' : show val, "blue")
 

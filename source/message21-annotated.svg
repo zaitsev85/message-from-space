@@ -2105,8 +2105,8 @@
 <text x='93' y='157' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>t</text>
 <rect x='115' y='139' width='35' height='35' style='fill:yellow;opacity:0.5'/>
 <text x='133' y='157' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>t</text>
-<rect x='155' y='139' width='27' height='27' style='fill:blue;opacity:0.5'/>
-<text x='169' y='153' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>x0</text>
+<rect x='155' y='139' width='27' height='27' style='fill:yellow;opacity:0.5'/>
+<text x='169' y='153' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>i</text>
 <rect x='219' y='139' width='35' height='35' style='fill:yellow;opacity:0.5'/>
 <text x='237' y='157' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>=</text>
 <rect x='291' y='139' width='35' height='35' style='fill:yellow;opacity:0.5'/>

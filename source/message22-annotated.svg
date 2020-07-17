@@ -851,7 +851,7 @@
 <rect x='155' y='99' width='27' height='27' style='fill:yellow;opacity:0.5'/>
 <text x='169' y='113' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>ap</text>
 <rect x='187' y='99' width='35' height='35' style='fill:yellow;opacity:0.5'/>
-<text x='205' y='117' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:7</text>
+<text x='205' y='117' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>s</text>
 <rect x='227' y='99' width='35' height='35' style='fill:yellow;opacity:0.5'/>
 <text x='245' y='117' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>t</text>
 </svg>

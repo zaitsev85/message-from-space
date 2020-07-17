@@ -4977,7 +4977,7 @@
 <rect x='243' y='523' width='27' height='27' style='fill:yellow;opacity:0.5'/>
 <text x='257' y='537' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>ap</text>
 <rect x='275' y='523' width='35' height='35' style='fill:yellow;opacity:0.5'/>
-<text x='293' y='541' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:10</text>
+<text x='293' y='541' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>neg</text>
 <rect x='315' y='523' width='27' height='27' style='fill:green;opacity:0.5'/>
 <text x='329' y='537' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>1</text>
 <rect x='11' y='579' width='67' height='19' style='fill:gray;opacity:0.5'/>

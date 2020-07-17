@@ -547,5 +547,5 @@
 <rect x='107' y='75' width='35' height='35' style='fill:yellow;opacity:0.5'/>
 <text x='125' y='93' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>=</text>
 <rect x='179' y='75' width='51' height='51' style='fill:yellow;opacity:0.5'/>
-<text x='205' y='101' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:64170</text>
+<text x='205' y='101' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>cons</text>
 </svg>

@@ -1281,7 +1281,7 @@
 <rect x='625' y='121' width='7' height='7' style='fill:white'/>
 <rect x='633' y='121' width='7' height='7' style='fill:white'/>
 <rect x='11' y='11' width='51' height='51' style='fill:yellow;opacity:0.5'/>
-<text x='37' y='37' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:64170</text>
+<text x='37' y='37' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>cons</text>
 <rect x='11' y='67' width='27' height='27' style='fill:yellow;opacity:0.5'/>
 <text x='25' y='81' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>ap</text>
 <rect x='43' y='67' width='27' height='27' style='fill:yellow;opacity:0.5'/>
@@ -1289,7 +1289,7 @@
 <rect x='75' y='67' width='27' height='27' style='fill:yellow;opacity:0.5'/>
 <text x='89' y='81' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>ap</text>
 <rect x='107' y='67' width='51' height='51' style='fill:yellow;opacity:0.5'/>
-<text x='133' y='93' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:64170</text>
+<text x='133' y='93' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>cons</text>
 <rect x='163' y='67' width='43' height='43' style='fill:blue;opacity:0.5'/>
 <text x='185' y='89' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>x0</text>
 <rect x='211' y='67' width='43' height='43' style='fill:blue;opacity:0.5'/>

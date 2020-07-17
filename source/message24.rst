@@ -1,4 +1,4 @@
-#24. ???
+#24. id / i combinator
 ========
 
 .. include:: note-discord.rst

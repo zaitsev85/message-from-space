@@ -1,1 +1,1 @@
-TODO: fix decoded text?
+Decoded as ``f``, because it has a meaning of boolean False.

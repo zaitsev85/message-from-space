@@ -1,1 +1,1 @@
-TODO: fix decoded text?
+``ap f x`` is f(x)

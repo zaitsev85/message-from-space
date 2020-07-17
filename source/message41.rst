@@ -1,4 +1,4 @@
-#41. Interactive draw protocol
+#41. Stateful draw protocol
 ==============================
 
 .. include:: note-discord.rst

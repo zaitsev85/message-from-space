@@ -1,1 +1,2 @@
+It gives us back the variable bound to the draw state, so we can set the next pixel with the next call.
 

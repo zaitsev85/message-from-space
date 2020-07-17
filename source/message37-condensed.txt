@@ -1,2 +1,2 @@
-A function `if-zero?`
+A function `if0`
 Compare 1st argument to 0 and pick 2nd, else 3rd

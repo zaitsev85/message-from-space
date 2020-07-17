@@ -456,11 +456,11 @@
 <rect x='265' y='97' width='7' height='7' style='fill:white'/>
 <rect x='273' y='97' width='7' height='7' style='fill:white'/>
 <rect x='11' y='11' width='35' height='35' style='fill:yellow;opacity:0.5'/>
-<text x='29' y='29' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:14</text>
+<text x='29' y='29' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>nil</text>
 <rect x='11' y='51' width='27' height='27' style='fill:yellow;opacity:0.5'/>
 <text x='25' y='65' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>ap</text>
 <rect x='43' y='51' width='35' height='35' style='fill:yellow;opacity:0.5'/>
-<text x='61' y='69' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:14</text>
+<text x='61' y='69' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>nil</text>
 <rect x='83' y='51' width='43' height='43' style='fill:blue;opacity:0.5'/>
 <text x='105' y='73' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>x0</text>
 <rect x='163' y='51' width='35' height='35' style='fill:yellow;opacity:0.5'/>

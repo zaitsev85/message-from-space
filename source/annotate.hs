@@ -312,6 +312,7 @@ symRepr (SymOperator val) = (text, "yellow")
           -- constants
           , (2, "t")
           , (8, "f")
+          , (14, "nil")
           -- unary operators
           , (10, "neg")
           , (401, "dec")
@@ -319,6 +320,7 @@ symRepr (SymOperator val) = (text, "yellow")
           , (170, "mod")
           , (341, "dem")
           , (68191693600, "pwr2")
+          , (15, "isnil")
           -- binary operators
           , (40, "div")
           , (146, "mul")
@@ -338,6 +340,7 @@ symRepr (SymOperator val) = (text, "yellow")
           , (64171, "cdr")
           -- misc
           , ( 174, "send" )
+          , ( 58336, "if0" )
           ]
 symRepr (SymVariable val) = ('x' : show val, "blue")
 

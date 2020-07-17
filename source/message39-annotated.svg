@@ -6113,7 +6113,7 @@
 <rect x='171' y='75' width='43' height='43' style='fill:blue;opacity:0.5'/>
 <text x='193' y='97' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>x0</text>
 <rect x='219' y='75' width='35' height='35' style='fill:yellow;opacity:0.5'/>
-<text x='237' y='93' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:14</text>
+<text x='237' y='93' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>nil</text>
 <rect x='259' y='75' width='27' height='27' style='fill:yellow;opacity:0.5'/>
 <text x='273' y='89' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>ap</text>
 <rect x='291' y='75' width='27' height='27' style='fill:yellow;opacity:0.5'/>

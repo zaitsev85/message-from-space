@@ -1,7 +1,7 @@
 ap :33053392 :33554448
-ap ap :33554448 x0 x1   =   ? ? 0 ? :14 ? ? ? ? ? x1 ?   ?   ?
-:33554448   =   ap ap c ap ap b b ap ap b ap b ap cons 0 ap ap c ap ap b b cons ap ap c cons :14 ap ap c ap ap b cons ap ap c cons :14 :14
-ap ap ap :33053392 :33554448 :14 ap ap :17043521 1 0   =   ? ? :14 ? ? ? ?   ?   ?
-ap ap ap :33053392 :33554448 :14 ap ap :17043521 2 3   =   ? ? :14 ? ? ? ?   ?   ?
-ap ap ap :33053392 :33554448 :14 ap ap :17043521 4 1   =   ? ? :14 ? ? ? ?   ?   ?
+ap ap :33554448 x0 x1   =   ? ? 0 ? nil ? ? ? ? ? x1 ?   ?   ?
+:33554448   =   ap ap c ap ap b b ap ap b ap b ap cons 0 ap ap c ap ap b b cons ap ap c cons nil ap ap c ap ap b cons ap ap c cons nil nil
+ap ap ap :33053392 :33554448 nil ap ap :17043521 1 0   =   ? ? nil ? ? ? ?   ?   ?
+ap ap ap :33053392 :33554448 nil ap ap :17043521 2 3   =   ? ? nil ? ? ? ?   ?   ?
+ap ap ap :33053392 :33554448 nil ap ap :17043521 4 1   =   ? ? nil ? ? ? ?   ?   ?
 ...

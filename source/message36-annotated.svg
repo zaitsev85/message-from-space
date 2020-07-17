@@ -1175,7 +1175,7 @@
 <rect x='11' y='75' width='27' height='27' style='fill:yellow;opacity:0.5'/>
 <text x='25' y='89' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>ap</text>
 <rect x='43' y='75' width='43' height='43' style='fill:yellow;opacity:0.5'/>
-<text x='65' y='97' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>:174</text>
+<text x='65' y='97' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>send</text>
 <rect x='99' y='75' width='27' height='43' style='fill:gray;opacity:0.5'/>
 <text x='113' y='97' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>?</text>
 <rect x='131' y='75' width='27' height='27' style='fill:green;opacity:0.5'/>

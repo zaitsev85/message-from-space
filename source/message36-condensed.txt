@@ -1,1 +1,1 @@
-:1678847 is decreasing over time.
+:1678847 is decreasing over time at a rate of 1/3 per second and will reach 0 at the icfp contest main round deadline.

@@ -1,5 +1,5 @@
-#23. ???
-========
+#23. Power of two
+=================
 
 .. include:: note-discord.rst
 

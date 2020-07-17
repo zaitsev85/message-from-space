@@ -1,3 +1,3 @@
-:64171
-ap :64171 ap ap :64170 x0 x1   =   x1
-ap :64171 x2   =   ap x2 f
+cdr
+ap cdr ap ap cons x0 x1   =   x1
+ap cdr x2   =   ap x2 f

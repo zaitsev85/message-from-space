@@ -1,5 +1,5 @@
-#25. ???
-========
+#25. Cons
+=========
 
 .. include:: note-discord.rst
 

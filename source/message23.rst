@@ -1,4 +1,4 @@
-#23. ???
+#23. pow2
 ========
 
 .. include:: note-discord.rst

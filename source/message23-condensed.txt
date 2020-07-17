@@ -1,1 +1,1 @@
-TODO: fix decoded text?
+Power of two (2^n)

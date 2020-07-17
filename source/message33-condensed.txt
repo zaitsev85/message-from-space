@@ -1,1 +1,1 @@
-TODO: fix decoded text?
+Draws a checkerboard of the specified size.

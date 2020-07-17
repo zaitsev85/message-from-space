@@ -1,4 +1,4 @@
-:11184810
-:11184810   =   ap ap s ap ap b s ap ap c ap ap b c ap ap b ap c ap c ap ap s ap ap b s ap ap b ap b ap ap s x0 x0 lt eq ap ap s mul x0 nil ap ap s ap ap b s ap ap b ap b cons ap ap s ap ap b s ap ap b ap b cons ap c div ap c ap ap s ap ap b b ap ap c ap ap b b add neg ap ap b ap s mul div ap ap c ap ap b b :11184810 ap ap c add 2
-ap ap :11184810 7 0   =   ?
-ap ap :11184810 13 0   =   ?
+chkb
+chkb   =   ap ap s ap ap b s ap ap c ap ap b c ap ap b ap c ap c ap ap s ap ap b s ap ap b ap b ap ap s x0 x0 lt eq ap ap s mul x0 nil ap ap s ap ap b s ap ap b ap b cons ap ap s ap ap b s ap ap b ap b cons ap c div ap c ap ap s ap ap b b ap ap c ap ap b b add neg ap ap b ap s mul div ap ap c ap ap b b chkb ap ap c add 2
+ap ap chkb 7 0   =   |picture1|
+ap ap chkb 13 0   =   |picture2|

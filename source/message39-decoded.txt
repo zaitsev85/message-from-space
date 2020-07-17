@@ -1,6 +1,6 @@
 :33053392
-ap ap ap :33053392 x0 nil ap ap :17043521 0 0   =   ? ? x16 ? ap :68259412260 x64 ?
-ap ap ap :33053392 x0 x16 ap ap :17043521 x1 x2   =   ? ? x17 ? ap :68259412260 x65 ?
-ap ap ap :33053392 x0 x17 ap ap :17043521 x3 x4   =   ? ? x18 ? ap :68259412260 x66 ?
-ap ap ap :33053392 x0 x18 ap ap :17043521 x5 x6   =   ? ? x19 ? ap :68259412260 x67 ?
+ap ap ap :33053392 x0 nil ap ap vec 0 0   =   ? ? x16 ? ap :68259412260 x64 ?
+ap ap ap :33053392 x0 x16 ap ap vec x1 x2   =   ? ? x17 ? ap :68259412260 x65 ?
+ap ap ap :33053392 x0 x17 ap ap vec x3 x4   =   ? ? x18 ? ap :68259412260 x66 ?
+ap ap ap :33053392 x0 x18 ap ap vec x5 x6   =   ? ? x19 ? ap :68259412260 x67 ?
 ...

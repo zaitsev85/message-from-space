@@ -1,3 +1,3 @@
-Takes a list of lists of 2D-points and returns a list of plot canvases.
+Takes a list of lists of 2D-points and returns a list of rendered pictures.
 
 It applies draw function to all items of the list.

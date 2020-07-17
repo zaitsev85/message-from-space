@@ -1,0 +1,7 @@
+We believe that this message tells us to run an :doc:`interaction protocol <message38>` called ``galaxy``.
+This protocol is defined in the last line of the :download:`huge message <galaxy.txt>` included on this page.
+
+Messages :doc:`#38 <message38>` and :doc:`#39 <message39>` describe how to run a protocol.
+As we can see from :doc:`message #38 <message38>`, a protocol takes a :doc:`vector <message31>` and returns a list of :doc:`pictures <message32>`.
+
+Messages :doc:`#40 <message40>` and :doc:`#41 <message41>` define two simple protocols and demonstrate their behavior during execution.

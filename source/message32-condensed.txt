@@ -1,1 +1,1 @@
-Communication with display. It draws a list of coordinates as dots on a canvas.
+It draws a list of coordinates as dots on a picture.

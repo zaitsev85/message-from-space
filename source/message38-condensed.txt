@@ -1,7 +1,10 @@
 Is a function that takes an "interaction-protocol", some data (maybe "protocol" dependent), and some pixel. 
-It returns some new data, and a list of canvases (images).
+It returns some new data, and a list of pictures.
+
+Note that during the execution it sometimes uses the :doc:`send <message15>` function to communicate with spacecraft.
 
 ::
+
     // list function call notation
     f38 g (a,b,c) = if a == 0
                     then (modem b, multipledraw c)

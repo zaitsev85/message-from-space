@@ -1,5 +1,5 @@
-#21. K Combinator
-=================
+#21. True (K Combinator)
+========================
 
 .. include:: note-discord.rst
 

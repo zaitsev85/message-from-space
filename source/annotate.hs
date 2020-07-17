@@ -357,7 +357,6 @@ splitByLines = id
       | otherwise = Nothing
 
 symRepr :: Symbol -> (String, String)
-symRepr (SymBox w h val) = ( "[" ++ show w ++ "x" ++ show h ++ ": " ++ show val ++ "]", "white")
 symRepr SymUnknown = ("?", "gray")
 symRepr (SymSpecial x) = (x, "gray")
 symRepr SymEllipsis = ("...", "gray")
@@ -401,6 +400,7 @@ symRepr (SymOperator val) = (text, "yellow")
           , ( 174, "send" )
           , ( 58336, "if0" )
           ]
+symRepr (SymBox w h val) = ('#' : show w ++ ":" ++ show h ++ ":" ++ showHex val "", "orange")
 symRepr (SymVariable val) = ('x' : show val, "blue")
 
 symRepr' :: Img -> (Coord, Size) -> (Coord, Size, String, String)

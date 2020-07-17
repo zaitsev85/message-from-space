@@ -1,0 +1,1 @@
+Variables have a white border. Inverted number inside the border identifies the variable.

@@ -1,3 +1,4 @@
 Left vertical and top horizontal bars define glyph size.
 Number glyphs are always square.
 All other pixels except these bars are bits of encoded number written left to right and top to bottom.
+Top left pixel is always black in numbers.

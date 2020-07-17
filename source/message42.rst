@@ -1,5 +1,5 @@
-#42. ???
-========
+#42. Galaxy
+===========
 
 .. include:: note-discord.rst
 

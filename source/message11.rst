@@ -23,9 +23,7 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-.. todo::
-
-   Add an interpretation for the eleventh message.
+Operator 448 is consistent with checking whether the first number equal than the second number. We will denote it as `eq`.
 
 
 Decoded

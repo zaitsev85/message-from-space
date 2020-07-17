@@ -1,4 +1,4 @@
-#40. Stateless drawing protocol
+#40. Stateless Drawing Protocol
 ===============================
 
 .. include:: note-discord.rst

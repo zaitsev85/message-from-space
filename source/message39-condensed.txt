@@ -1,1 +1,2 @@
-?!?!
+Start protocol, passing it emptyList as a state and a point (0, 0). 
+Then iterate protocol execution passing it some other points and states, returned from the previous iteration.

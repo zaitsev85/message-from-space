@@ -6,15 +6,15 @@ Note that during the execution it sometimes uses the :doc:`send <message15>` fun
 ::
 
     // list function call notation
-    f38 g (a,b,c) = if a == 0
-                    then (modem b, multipledraw c)
-                    else interact g (modem b) (send c)
-    interact g a b = f38 g (g a b)
+    f38 protocol (flag, newState, data) = if flag == 0
+                    then (modem newState, multipledraw data)
+                    else interact protocol (modem newState) (send data)
+    interact protocol state vector = f38 protocol (protocol state vector)
 
 
 
     // mathematical function call notation
-    f38(g, (a,b,c)) = if a == 0
-                    then (modem(b), multipledraw(c))
-                    else interact(g, modem(b), send(c))
-    interact(g, a, b) = f38(g, g(a, b))
+    f38(protocol, (flag, newState, data)) = if a == 0
+                    then (modem(newState), multipledraw(data))
+                    else interact(protocol, modem(newState), send(data))
+    interact(protocol, state, vector) = f38(protocol, protocol(state, vector))

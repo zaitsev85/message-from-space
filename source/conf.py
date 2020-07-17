@@ -93,7 +93,7 @@ def setup(app):
 
             if os.path.isfile(os.path.join(dirname, 'message%d-condensed.txt' % i)):
                 with open(os.path.join(dirname, 'message%d-condensed.txt' % i)) as c:
-                    f.write(c.read() + '\n')
+                    f.write(c.read() + '\n\n')
 
             f.write('.. literalinclude:: message%d-decoded.txt\n\n\n' % i)
 

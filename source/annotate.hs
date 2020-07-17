@@ -30,6 +30,7 @@ data Img = Img (P.Image P.PixelRGBA8) Scale
 
 data Symbol
   = SymNumber Integer
+  | SymModulatedNumber Integer
   | SymOperator Integer
   | SymVariable Integer
   | SymEllipsis
@@ -102,6 +103,7 @@ symDecode :: Img -> Coord -> Size -> Symbol
 symDecode img (x, y) (w, h)
   | isNonNegativeNumber = SymNumber value
   | isNegativeNumber = SymNumber (-value)
+  | isModulatedNumber = SymModulatedNumber modulatedValue
   | isVariable = SymVariable varValue
   | isOperator = SymOperator value
   | isEllipsis = SymEllipsis
@@ -135,9 +137,24 @@ symDecode img (x, y) (w, h)
 
     isEllipsis = checkSymbol img symEllipsis (x-1, y-1)
 
+    isModulatedNonNeg = checkSymbol img symModulatedNonNeg (x, y)
+
+    isModulatedNeg = checkSymbol img symModulatedNeg (x, y)
+
+    isModulatedNumber = isModulatedNonNeg || isModulatedNeg
+
     value = bitsToInteger $ map px $ range2d 1 1 (size-1) (size-1)
 
     varValue = bitsToInteger $ map (not . px) $ range2d 2 2 (size-2) (size-2)
+
+    modulatedSign = if isModulatedNonNeg then 1 else (-1)
+
+    modulatedNibbleCount = length $ takeWhile (\x -> px (x, 0)) [2 ..]
+
+    modulatedBits = map (\x -> px (x, 0)) $
+      take (4 * modulatedNibbleCount) [(3 + modulatedNibbleCount) ..]
+
+    modulatedValue = modulatedSign * (foldl (\acc bit -> (2 * acc) + if bit then 1 else 0) 0 modulatedBits)
 
 symDetectAll :: Img -> [(Coord, Size)]
 symDetectAll img = runST $ do
@@ -154,19 +171,36 @@ symDetectAll img = runST $ do
 
 symDetectSingle :: Img -> Coord -> Maybe Size
 symDetectSingle img (x, y)
-  | px 1 0 && px 0 1 = Just (width + 1, height + 1)
+  | checkSymbol img symModulatedNonNeg (x, y) = Just (modulatedWidth, 2)
+  | checkSymbol img symModulatedNeg (x, y) = Just (modulatedWidth, 2)
+  | px 0 0 && not (px 1 0) && not (px 0 1) && px 1 1 = Just (modulatedWidth, 2)
+  | px 1 0 && px 0 1 = Just (gridWidth + 1, gridHeight + 1)
   | checkSymbol img symEllipsis (x-1, y-1) = Just (7, 1)
   | otherwise = Nothing
   where
     px x' y' = imgPixel img (x + x', y + y')
-    width = length $ takeWhile (flip px 0) [1 ..]
-    height = length $ takeWhile (px 0) [1 ..]
+    gridWidth = length $ takeWhile (flip px 0) [1 ..]
+    gridHeight = length $ takeWhile (px 0) [1 ..]
+    modulatedWidth = length $ takeWhile (\x -> px x 0 || px x 1) [0 ..]
 
 symEllipsis :: [[Bool]]
 symEllipsis = map (map (=='#'))
   [ "........."
   , ".#.#.#.#."
   , "........."
+  ]
+
+symModulatedNonNeg :: [[Bool]]
+symModulatedNonNeg = map (map (=='#'))
+  [ ".#"
+  , "#."
+  , "."
+  ]
+
+symModulatedNeg :: [[Bool]]
+symModulatedNeg = map (map (=='#'))
+  [ "#."
+  , ".#"
   ]
 
 checkLine :: Img -> [Bool] -> Coord -> Bool
@@ -268,6 +302,7 @@ symRepr :: Symbol -> (String, String)
 symRepr SymUnknown = ("?", "gray")
 symRepr SymEllipsis = ("...", "gray")
 symRepr (SymNumber val) = (show val, "green")
+symRepr (SymModulatedNumber val) = ("[" ++ show val ++ "]", "purple")
 symRepr (SymOperator val) = (text, "yellow")
   where
     text = fromMaybe (':' : show val) $ lookup val ops
@@ -276,12 +311,15 @@ symRepr (SymOperator val) = (text, "yellow")
           -- constants
           , (2, "t")
           , (8, "f")
+          -- unary operators
+          , (401, "dec")
+          , (417, "inc")
+          , (170, "mod")
+          , (341, "dem")
           -- binary operators
           , (40, "div")
           , (146, "mul")
           , (365, "add")
-          , (401, "dec")
-          , (417, "inc")
           -- comparisons
           , (416, "lt")
           , (448, "eq")

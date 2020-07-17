@@ -1,2 +1,17 @@
 Is a function that takes an "interaction-protocol", some data (maybe "protocol" dependent), and some pixel. 
 It returns some new data, and a list of canvases (images).
+
+::
+    // list function call notation
+    f38 g (a,b,c) = if a == 0
+                    then (modem b, multipledraw c)
+                    else interact g (modem b) (send c)
+    interact g a b = f38 g (g a b)
+
+
+
+    // mathematical function call notation
+    f38(g, (a,b,c)) = if a == 0
+                    then (modem(b), multipledraw(c))
+                    else interact(g, modem(b), send(c))
+    interact(g, a, b) = f38(g, g(a, b))

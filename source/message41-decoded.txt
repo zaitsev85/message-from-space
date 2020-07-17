@@ -1,9 +1,9 @@
 ap :33053392 :67108929
 ap ap :67108929 x0 x1   =   ( 0 , ap ap cons x1 x0 , ( ap ap cons x1 x0 ) )
 :67108929   =   ap ap b ap b ap ap s ap ap b ap b ap cons 0 ap ap c ap ap b b cons ap ap c cons nil ap ap c cons nil ap c cons
-ap ap ap :33053392 :67108929 nil ap ap :17043521 0 0   =   ( ( ap ap :17043521 0 0 ) , ( #17:13:1 ) )
-ap ap ap :33053392 :67108929 ( ap ap :17043521 0 0 ) ap ap :17043521 2 3   =   ( x2 , ( #17:13:20000000000001 ) )
-ap ap ap :33053392 :67108929 x2 ap ap :17043521 1 2   =   ( x3 , ( #17:13:20000800000001 ) )
-ap ap ap :33053392 :67108929 x3 ap ap :17043521 3 2   =   ( x4 , ( #17:13:20002800000001 ) )
-ap ap ap :33053392 :67108929 x4 ap ap :17043521 4 0   =   ( x5 , ( #17:13:20002800000011 ) )
+ap ap ap :33053392 :67108929 nil ap ap vec 0 0   =   ? ? ? ? ap ap vec 0 0 ?   ? ? ? ?   ?   ?
+ap ap ap :33053392 :67108929 ? ? ap ap vec 0 0 ?   ap ap vec 2 3   =   ? ? x2 ? ? ? ?   ?   ?
+ap ap ap :33053392 :67108929 x2 ap ap vec 1 2   =   ? ? x3 ? ? ? ?   ?   ?
+ap ap ap :33053392 :67108929 x3 ap ap vec 3 2   =   ? ? x4 ? ? ? ?   ?   ?
+ap ap ap :33053392 :67108929 x4 ap ap vec 4 0   =   ? ? x5 ? ? ? ?   ?   ?
 ...

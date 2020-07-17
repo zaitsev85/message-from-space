@@ -1,5 +1,5 @@
-#33. ???
-========
+#33. Checkerboard
+=================
 
 .. include:: note-discord.rst
 

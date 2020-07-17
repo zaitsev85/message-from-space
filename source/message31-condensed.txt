@@ -1,1 +1,1 @@
-TODO: fix decoded text?
+Alias for ``cons`` that looks nice in "vector" usage context.

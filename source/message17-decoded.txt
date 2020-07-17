@@ -9,5 +9,5 @@ ap ap add 2 ap ap add 3 4   =   9
 ap ap add ap ap mul 2 3 4   =   10
 ap ap mul 2 ap ap add 3 4   =   14
 inc   =   ap add 1
-dec   =   ap add ap :10 1
+dec   =   ap add ap neg 1
 ...

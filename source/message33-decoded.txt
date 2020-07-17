@@ -1,4 +1,4 @@
 :11184810
-:11184810   =   ap ap :7 ap ap :5 :7 ap ap :6 ap ap :5 :6 ap ap :5 ap :6 ap :6 ap ap :7 ap ap :5 :7 ap ap :5 ap :5 ap ap :7 x0 x0 lt eq ap ap :7 mul x0 :14 ap ap :7 ap ap :5 :7 ap ap :5 ap :5 :64170 ap ap :7 ap ap :5 :7 ap ap :5 ap :5 :64170 ap :6 div ap :6 ap ap :7 ap ap :5 :5 ap ap :6 ap ap :5 :5 add :10 ap ap :5 ap :7 mul div ap ap :6 ap ap :5 :5 :11184810 ap ap :6 add 2
+:11184810   =   ap ap :7 ap ap :5 :7 ap ap :6 ap ap :5 :6 ap ap :5 ap :6 ap :6 ap ap :7 ap ap :5 :7 ap ap :5 ap :5 ap ap :7 x0 x0 lt eq ap ap :7 mul x0 :14 ap ap :7 ap ap :5 :7 ap ap :5 ap :5 :64170 ap ap :7 ap ap :5 :7 ap ap :5 ap :5 :64170 ap :6 div ap :6 ap ap :7 ap ap :5 :5 ap ap :6 ap ap :5 :5 add neg ap ap :5 ap :7 mul div ap ap :6 ap ap :5 :5 :11184810 ap ap :6 add 2
 ap ap :11184810 7 0   =   ?
 ap ap :11184810 13 0   =   ?

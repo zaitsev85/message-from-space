@@ -1,5 +1,5 @@
-#29. isnil
-==========
+#29. Is Nil (Is Empty List)
+===========================
 
 .. include:: note-discord.rst
 

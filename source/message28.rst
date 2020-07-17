@@ -1,5 +1,5 @@
-#28. ???
-========
+#28. Nil (Empty List)
+=====================
 
 .. include:: note-discord.rst
 

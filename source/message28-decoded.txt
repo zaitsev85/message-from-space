@@ -1,2 +1,2 @@
-:14
-ap :14 x0   =   t
+nil
+ap nil x0   =   t

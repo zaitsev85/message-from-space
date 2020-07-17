@@ -115,9 +115,9 @@ symDecode img (x, y) (w, h)
   | isOperator = SymOperator value
   | isBox = SymBox (w-2) (h-2) boxValue
   | isEllipsis = SymEllipsis
-  | checkSymbol img symOpenPar (x-1, y-1) = SymSpecial "<"
-  | checkSymbol img symClosePar (x-1, y-1) = SymSpecial ">"
-  | checkSymbol img symPipe (x-1, y-1) = SymSpecial "|"
+  | checkSymbol img symOpenPar (x-1, y-1) = SymSpecial "("
+  | checkSymbol img symClosePar (x-1, y-1) = SymSpecial ")"
+  | checkSymbol img symPipe (x-1, y-1) = SymSpecial ","
   | otherwise = SymUnknown
   where
     size = w

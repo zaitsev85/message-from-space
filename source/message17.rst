@@ -1,5 +1,5 @@
-#17. ???
-========
+#17. Defining Function
+======================
 
 .. include:: note-discord.rst
 
@@ -17,6 +17,8 @@ This image was produced from the seventeenth radio transmission using :doc:`prev
 
 Interpretation
 --------------
+
+Functions are defined using an equal sign.
 
 .. include:: message17-condensed.txt
 

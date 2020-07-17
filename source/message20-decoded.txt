@@ -1,4 +1,4 @@
-:5
-ap ap ap :5 x0 x1 x2   =   ap x0 ap x1 x2
-ap ap ap :5 inc dec x0   =   x0
+B
+ap ap ap B x y z   =   ap x ap y z
+ap ap ap B inc dec x0   =   x0
 ...

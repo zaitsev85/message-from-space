@@ -4,6 +4,6 @@ ap mod ap ap cons nil nil   =   [0]
 ap mod ap ap cons 0 nil   =   [0]
 ap mod ap ap cons 1 2   =   [-22]
 ap mod ap ap cons 1 ap ap cons 2 nil   =   [-29]
-ap mod ? ? 1 ? 2 ?   =   [-29]
-ap mod ? ? 1 ? ? ? 2 ? 3 ?   ? 4 ?   =   [-31]
+ap mod ( 1 , 2 )   =   [-29]
+ap mod ( 1 , ( 2 , 3 ) , 4 )   =   [-31]
 ...

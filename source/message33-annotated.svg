@@ -30164,8 +30164,8 @@
 <text x='193' y='153' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>0</text>
 <rect x='243' y='139' width='35' height='35' style='fill:yellow;opacity:0.5'/>
 <text x='261' y='157' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>=</text>
-<rect x='315' y='139' width='155' height='123' style='fill:gray;opacity:0.5'/>
-<text x='393' y='201' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>?</text>
+<rect x='315' y='139' width='163' height='131' style='fill:white;opacity:0.5'/>
+<text x='397' y='205' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>[17x13: 431002828898987225087787354292309]</text>
 <rect x='11' y='275' width='27' height='27' style='fill:yellow;opacity:0.5'/>
 <text x='25' y='289' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>ap</text>
 <rect x='43' y='275' width='27' height='27' style='fill:yellow;opacity:0.5'/>
@@ -30178,6 +30178,6 @@
 <text x='193' y='289' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>0</text>
 <rect x='243' y='275' width='35' height='35' style='fill:yellow;opacity:0.5'/>
 <text x='261' y='293' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>=</text>
-<rect x='315' y='275' width='155' height='147' style='fill:gray;opacity:0.5'/>
-<text x='393' y='349' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>?</text>
+<rect x='315' y='275' width='163' height='155' style='fill:white;opacity:0.5'/>
+<text x='397' y='353' dominant-baseline='middle' text-anchor='middle' fill='white' style='paint-order: stroke; fill: white; stroke: black; stroke-width: 2px; font:24px bold sans;'>[17x16: 140408354078588176355581673523629411514037590264285132568921380181]</text>
 </svg>

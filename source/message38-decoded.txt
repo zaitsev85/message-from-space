@@ -1,4 +1,4 @@
 :33053392
 ap :7110656 x0   =   ap dem ap mod x0
-ap :33185746 x0   =   ap ap ap if0 ap car x0 ? ? ap :7110656 ap car ap cdr x0 ? ap :68259412260 ap car ap cdr ap cdr x0 ?   ap ap :33053392 ap :7110656 ap car ap cdr x0 ap send ap car ap cdr ap cdr x0
+ap :33185746 x0   =   ap ap ap if0 ap car x0 ( ap :7110656 ap car ap cdr x0 , ap :68259412260 ap car ap cdr ap cdr x0 ) ap ap :33053392 ap :7110656 ap car ap cdr x0 ap send ap car ap cdr ap cdr x0
 ap ap ap :33053392 x2 x4 x5   =   ap :33185746 ap ap x2 x4 x5

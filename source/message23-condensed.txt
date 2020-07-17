@@ -1,0 +1,1 @@
+Recursive function: pwr2 definition uses pwr2. 

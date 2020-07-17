@@ -1,4 +1,4 @@
-#25. Cons
+#25. Cons (or Pair)
 =========
 
 .. include:: note-discord.rst

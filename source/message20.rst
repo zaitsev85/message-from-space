@@ -1,5 +1,5 @@
-#20. ???
-========
+#20. B Combinator
+=================
 
 .. include:: note-discord.rst
 

@@ -118,6 +118,7 @@ symDecode img (x, y) (w, h)
       && not (px (0, 0))
 
     isNegativeNumber = True
+      && size >= 2
       && w + 1 == h
       && not (px (0, 0))
       && px (0, size)
@@ -128,6 +129,7 @@ symDecode img (x, y) (w, h)
       && px (0, 0)
 
     isVariable = True
+      && size >= 4
       && w == h
       && px (1, 1)
       && all px [(x',     size-1) | x' <- [0 .. size-1]] -- bottom is full

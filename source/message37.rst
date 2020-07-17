@@ -14,6 +14,11 @@ This image was produced from the thirty-seventh radio transmission using :doc:`p
 .. image:: message37.png
    :width: 224px
 
+This partly annotated version of the image was made using :ref:`code from message #3 <message3-code>`.
+
+.. image:: message37-annotated.svg
+   :width: 512px
+
 
 Interpretation
 --------------

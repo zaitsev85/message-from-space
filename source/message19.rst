@@ -14,6 +14,11 @@ This image was produced from the nineteenth radio transmission using :doc:`previ
 .. image:: message19.png
    :width: 312px
 
+This partly annotated version of the image was made using :ref:`code from message #3 <message3-code>`.
+
+.. image:: message19-annotated.svg
+   :width: 512px
+
 
 Interpretation
 --------------

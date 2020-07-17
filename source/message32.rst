@@ -14,6 +14,11 @@ This image was produced from the thirty-second radio transmission using :doc:`pr
 .. image:: message32.png
    :width: 816px
 
+This partly annotated version of the image was made using :ref:`code from message #3 <message3-code>`.
+
+.. image:: message32-annotated.svg
+   :width: 512px
+
 
 Interpretation
 --------------

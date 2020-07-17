@@ -1,5 +1,5 @@
-#24. ???
-========
+#24. I Combinator
+=================
 
 .. include:: note-discord.rst
 

@@ -33,7 +33,7 @@ The operator defined in this message, ``mod``, is for converting numbers from a 
 * Bits 2..(n+2) define the width of the following binary-encoded number via a unary-encoded number of length *n* composed of high signals ending with a low signal. The number width (in bits) is four times the unary encoding (i.e. 4 * *n*):
 
   * 0: 0 [i.e. the number zero]
-  * 10: 4-bit number [i.e. 1-7]
+  * 10: 4-bit number [i.e. 1-15]
   * 110: 8-bit number [i.e. 1-255]
   * 1110: 12-bit number [i.e. 1-4095]
   * ...

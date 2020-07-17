@@ -322,6 +322,10 @@ symRepr (SymOperator val) = (text, "yellow")
           -- comparisons
           , (416, "lt")
           , (448, "eq")
+          -- B,C,K,W-system (https://en.wikipedia.org/wiki/B,_C,_K,_W_system)
+          , (6, "c")
+          , (5, "b")
+          , (7, "s")
           ]
 symRepr (SymVariable val) = ('x' : show val, "blue")
 

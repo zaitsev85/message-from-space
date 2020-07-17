@@ -1,1 +1,3 @@
-TODO: fix decoded text?
+That the last two lines demonstrate that function application `ap` allows
+curried (i.e. partially evaluated) functions, by defining `inc` as the function
+`x -> 1 + x`.

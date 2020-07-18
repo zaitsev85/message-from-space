@@ -54,3 +54,4 @@ To read the whole story, go to :doc:`personal-appeal`. Beware: pages may contain
    message40
    message41
    message42
+   game

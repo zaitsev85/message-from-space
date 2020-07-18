@@ -1,5 +1,5 @@
 ap interact statelessdraw
-ap ap statelessdraw x0 x1 = ( 0 , nil , ( ( x1 ) ) )
+ap ap statelessdraw x0 x1 = ( 0 , x0 , ( ( x1 ) ) )
 statelessdraw = ap ap c ap ap b b ap ap b ap b ap cons 0 ap ap c ap ap b b cons ap ap c cons nil ap ap c ap ap b cons ap ap c cons nil nil
 ap ap ap interact statelessdraw nil ap ap vec 1 0 = ( nil , ( [1,0] ) )
 ap ap ap interact statelessdraw nil ap ap vec 2 3 = ( nil , ( [2,3] ) )

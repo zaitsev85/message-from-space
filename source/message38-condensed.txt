@@ -24,10 +24,8 @@ Note that during the execution it sometimes uses the :doc:`send <message15>` fun
 
 So we can assume that ``newState`` is always list of list of ... of numbers.
 
-After experimenting with galaxy interaction protocol we have found out several things:
+After experimenting with the galaxy interaction protocol we have found out several good ideas:
 
-1. We can choose any ``vector`` to pass it to the interact function.
+1. We can choose any ``vector`` to pass it to the interact function. But a convenient way to input this vectors — is clicking on the image pixel from the previous interact execution result.
 
-2. The good way to input this vectors - is clicking on the image pixel from the previous interact run.
-
-3. We need to draw the images passed to multipledraw somehow. A good way to do it - is to overlay images one over another with different colors.
+3. We need to draw the images passed to multipledraw somehow. A convenient way to do it — is to overlay images one over another using different colors for different images.

@@ -45,7 +45,7 @@ How to Play the Local Tournament
 --------------------------------
 
 This section describes the way we run your submitted code on our server.
-Your submission will play games using the Galaxy Pad UI or alternative proxy methods.
+Your submission can play games using its internal Galaxy Pad UI instance or, alternatively, via direct proxy calls.
 
 We run some preparation steps for you, so you don't have to do it:
 
@@ -57,7 +57,8 @@ We run some preparation steps for you, so you don't have to do it:
 
    .. image:: game-create.png
    
-2. We run your submission container with ``serverUrl`` and ``playerKey`` as command line arguments. Note that you **must** use provided ``serverUrl`` as a proxy for all outgoing ``send`` requests to alien proxy.
+2. We run your submission container with ``serverUrl`` and ``playerKey`` as command line arguments. Note that you **must** use provided ``serverUrl`` as a base URL for all outgoing ``aliens/send`` requests to alien proxy.
+   For example, ``serverUrl`` can be ``http://server:12345``. In this case you should send requests to ``http://server:12345/aliens/send``.
    
 3. Your bot **must** join the game using the provided ``playerKey``. Your bot can create its own internal Galaxy Pad instance and do it via the UI. First, click on the two-player game button:
 

@@ -23,7 +23,7 @@ This partly annotated version of the image was made using :ref:`code from messag
 Interpretation
 --------------
 
-This appears to define an inverse operator to that from :doc:`message13`, demonstrating that ``:341`` (``mod``) is the inverse of ``:170`` (``dem``), and vice versa. This suggests that ``:341``, when applied to a linear-encoded number, will create a grid-encoded number.
+This appears to define an inverse operator to that from :doc:`message13`, demonstrating that ``:341`` (``dem``) is the inverse of ``:170`` (``mod``), and vice versa. This suggests that ``:341``, when applied to a linear-encoded number, will create a grid-encoded number.
 
 The behaviour of ``mod`` when applied to a linear number, or ``dem`` when applied to a grid number, is *not* defined.
 

@@ -18,3 +18,8 @@ Note that during the execution it sometimes uses the :doc:`send <message15>` fun
                     then (modem(newState), multipledraw(data))
                     else interact(protocol, modem(newState), send(data))
     interact(protocol, state, vector) = f38(protocol, protocol(state, vector))
+
+
+``mod`` is defined on ``cons``, ``nil`` and ``numbers`` only. So ``modem`` function seems to be the way to say that it's argument consists of numbers and lists only.
+
+So we can assume that ``newState`` is always list of list of ... of numbers.

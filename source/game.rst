@@ -192,3 +192,52 @@ GameResponse
     - ``2`` – indicates that the game has finished
 - ``(...unknown list A...)`` – still unclear but it doesn't change from turn to turn during the whole game
 - ``(...state of the game?...)`` – it changes from turn to turn. Obviously it's about state of the game, but the details are still unclear too
+
+
+Scoring
+-------
+
+Local tournament consists of several stages. Each stage has a hard deadline:
+
+1. 24 hours before the Alien Deadline (not scored, see below)
+2. 18 hours before the Alien Deadline
+3. 12 hours before the Alien Deadline
+4. 9 hours before the Alien Deadline
+5. 6 hours before the Alien Deadline
+6. 4 hours before the Alien Deadline
+7. 2 hours before the Alien Deadline (leaderboard frozen)
+8. Alien Deadline (July 20 at 13:00 UTC)
+
+Teams submit their solutions as described in the `submission system documentation`_.
+A team must select **only one** built and tested submission as their **active** submission selected for rating games.
+This choice is made via the `Submissions page`_ (click on a row to select).
+Note that new commits **do not** automatically become active unless there is a ``#release`` word in the commit message.
+
+Before letting team's submission participate in the tournament our system will test the submission's ability to join and start
+a game as an attacker and as a defender. It means that vanilla starter kits are **no longer considered valid submissions**.
+
+At the end of each stage our system will stop accepting new submissions for that stage.
+It means that your **active** submission at the end of the stage becomes your **final** submission for that stage.
+
+Our tournament system uses `TrueSkill rating system`_ to pair opponents and rank submissions in each stage.
+After the end of each stage our system will run additional rounds of games until all the TrueSkill ratings settle.
+Then we will assign score to top 50 submissions according to a formula:
+
+.. math::
+
+   score = \lfloor 50^{(50-rank)/50} \rfloor
+
+... where ``rank`` is zero-based position in the leaderboard for this stage.
+
+**Total score** for a team is the sum of the scores of that team **for stages 2..8**.
+The first stage earns no score and serves to make you familiar with the system.
+
+After the final Alien Deadline we will stop accepting new submissions entirely. Then we will run an **additional tournament stage**
+between the top 20 teams ranked by the **total score**. **Final submissions** from the last stage will be used in this additional stage.
+Winners of this additional stage will fight against the aliens for the honor of the humankind. And declared as winners of the ICFP Contest 2020.
+
+Results of this additional stage and the whole contest will be made public at the ICFP 2020 in August 2020.
+
+.. _`submission system documentation`: https://github.com/icfpcontest2020/dockerfiles/blob/master/README.md
+.. _`Submissions page`: https://icfpcontest2020.github.io/#/submissions
+.. _`TrueSkill rating system`: https://en.wikipedia.org/wiki/TrueSkill

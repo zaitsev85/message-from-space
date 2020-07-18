@@ -1,4 +1,0 @@
-Unfinished pages
-================
-
-.. todolist::

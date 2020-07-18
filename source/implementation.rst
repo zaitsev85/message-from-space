@@ -1,4 +1,4 @@
-Galaxy runner implementation in pseudocode
-==========================================
+Galaxy evaluator in pseudocode
+==============================
 
 .. literalinclude:: pseudocode.txt

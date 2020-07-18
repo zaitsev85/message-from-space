@@ -14,7 +14,7 @@ We saw an intergalactic tournament among the civilisations that lasts for ages.
 
 .. image:: game-history.png
 
-The numbers on the bottom of this screen indicate that on July 20 at 13:00 UTC (a wild guess!) there will be
+The numbers at the bottom of this screen indicate that on July 20 at 13:00 UTC (a wild guess!) there will be
 the final battle between an alien race and the humankind. What happens if the humankind loses? We don’t know (yet).
 
 We could also watch the “replays” of the past battles.
@@ -36,7 +36,7 @@ The only difference is that a single number keeps incrementing. We’ve tried ou
 
 .. image:: game-multiplayer.png
 
-We believe that what we’ve got is the “multiplayer mode” which can be used to fight other players. To find the best candidate to fight for the
+We believe that we’ve managed to enter the “multiplayer mode” which can be used to fight other players. To find the best candidate to fight for the
 humankind in the final battle, we are going to set up our own local tournament using this “multiplayer mode”. We will accept submissions for this
 tournament before the final battle countdown ends.
 
@@ -49,7 +49,7 @@ Your submission will play games using the Galaxy Pad UI or alternative proxy met
 
 We run some preparation steps for you, so you don't have to do it:
 
-1. We create a new game for you and generate player keys for both attacker and defender. First, we click on the two-player game button:
+1. In our internal Galaxy Pad instance we create a new game and generate player keys for both attacker and defender. First, we click on the two-player game button:
 
    .. image:: game-menu.png
 
@@ -57,9 +57,9 @@ We run some preparation steps for you, so you don't have to do it:
 
    .. image:: game-create.png
    
-2. We run your submission with ``serverUrl`` and ``playerKey`` as command line arguments.
+2. We run your submission container with ``serverUrl`` and ``playerKey`` as command line arguments. Note that you **must** use provided ``serverUrl`` as a proxy for all outgoing ``send`` requests to alien proxy.
    
-3. Your bot **must** join the game using the provided ``playerKey``. Your bot can do it via the UI. First, click on the two-player game button:
+3. Your bot **must** join the game using the provided ``playerKey``. Your bot can create its own internal Galaxy Pad instance and do it via the UI. First, click on the two-player game button:
 
    .. image:: game-menu.png
 
@@ -69,25 +69,25 @@ We run some preparation steps for you, so you don't have to do it:
 
    Then, click on the top-left Player Key button to confirm joining the game.
 
-   Alternatively your bot can do it without the Galaxy Pad using our HTTP proxy directly via ``JOIN`` response (see below).
+   Alternatively your bot can do it without the Galaxy Pad using our HTTP proxy directly via ``JOIN`` request (see below).
    
 4. Your bot **must** choose your initial ship parameters and start playing after successfuly joining.
-   Your bot can do it via the UI:
+   Your bot can do it via your internal Galaxy Pad UI:
 
    .. image:: game-start.png
 
    Then, click on the Galaxy button to start the game.
 
-   Alternatively your bot can do it without the Galaxy Pad using our HTTP proxy directly via ``START`` response (see below).
+   Alternatively your bot can do it without the Galaxy Pad using our HTTP proxy directly via ``START`` request (see below).
 
 5. Your bot **must** issue commands for your ships until the game is finished.
-   Your bot can do it via the UI as you did in the tutorials:
+   Your bot can do it via your internal Galaxy Pad UI as you did in the tutorials:
 
    .. image:: game-commands.png
 
-   Clicking on the Galaxy button sends all your selected commands to the Alien Proxy.
+   Clicking on the Galaxy button sends all your selected commands to the alien proxy.
    
-   Alternatively your bot can do it without the Galaxy Pad using our HTTP proxy directly via ``COMMANDS`` response (see below).
+   Alternatively your bot can do it without the Galaxy Pad using our HTTP proxy directly via ``COMMANDS`` request (see below).
 
 
 Timeouts
@@ -99,7 +99,7 @@ Each action required from your bot **must** be done fast enough, or we will disc
 - ``START``: you should send it within **1 second** after you receive the response to ``JOIN``.
 - ``COMMANDS``: you should send it within **1 second** after you receive the response to previous ``START`` or ``COMMANDS``.
 
-Also you have a timeout for the entire game (all ``COMMAND``\ s): **1 minute** total.
+Also you have a timeout for the entire game (all ``COMMAND``\ s, but not ``JOIN`` and ``START``): **1 minute** total.
 We know that a game runs for a maximum of **256** turns, so it's up to you how to use this time.  
 
 

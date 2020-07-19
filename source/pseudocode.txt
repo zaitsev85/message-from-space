@@ -59,7 +59,7 @@ Expr tryEval(Expr expr)
         return functions[expr.Name]
     if (expr is Ap)
         Expr fun = eval(expr.Fun)
-        Expr x = expr.Arg
+        Expr x = fun.Arg
         if (fun is not Atom)
             if (fun.Name == "neg") return Atom(-asNum(eval(x)))
             if (fun.Name == "i") return x
@@ -69,7 +69,7 @@ Expr tryEval(Expr expr)
             if (fun.Name == "cdr") return Ap(x, f)
         if (fun is Ap)
             Expr fun2 = eval(fun.Fun)
-            Expr y = fun.Arg
+            Expr y = fun2.Arg
             if (fun2 is not Atom)
                 if (fun2.Name == "t") return y
                 if (fun2.Name == "f") return x
@@ -81,7 +81,7 @@ Expr tryEval(Expr expr)
                 if (fun2.Name == "cons") return evalCons(y, x)
             if (fun2 is Ap)
                 Expr fun3 = eval(fun2.Fun)
-                Expr z = fun2.Arg
+                Expr z = fun3.Arg
                 if (fun3 is not Atom)
                     if (fun3.Name == "s") return Ap(Ap(z, x), Ap(y, x))
                     if (fun3.Name == "c") return Ap(Ap(z, x), y)

@@ -104,8 +104,10 @@ Also you have a timeout for the entire game (all ``COMMAND``\ s, but not ``JOIN`
 We know that a game runs for a maximum of **256** turns, so it's up to you how to use this time.  
 
 
-Implementation Issues
----------------------
+.. _game-implementation:
+
+Implementation Details
+----------------------
 
 Of course, you can just run your Galaxy Pad and emulate clicks on it.
 
@@ -144,9 +146,33 @@ Here is a pseudo code:
         }
     }
 
+Protocol
+--------
+
+We denote unknown data as ``xi`` below.
+
+CREATE
+^^^^^^
+
+.. note::
+
+   You shouldn't call CREATE in your submissions. We do that for you. See :ref:`Implementation Details <game-implementation>`.
+
+One can use this request to create the new ``playerKey``\ s to use them in the JOIN request.
+
+::
+
+    ( 1 )
+
+Response to that request has format:
+
+::
+
+    (1, ((0, attackPlayerKey), (1, defenderPlayerKey)))
+
 
 JOIN
-----
+^^^^
 
 ::
 
@@ -155,43 +181,115 @@ JOIN
 Purpose of the third item of this list is still unclear for us and we saw only 
 empty list (``nil``) here. Maybe you will discover more and use it... 
 
+Response is described in the :ref:`GameResponse section <game-response>`.
+
 
 START
------
+^^^^^
 
 ::
 
-    (3, playerKey, (<number1>, <number2>, <number3>, <number4>))
+    (3, playerKey, (x0, x1, x2, x3))
 
 The third item of this list is always a list of 4 numbers – it's the initial ship parameters.
 
+We noticed, that START doesn't finish successfully when ``x3`` is 0 or ``xi``'s are too large.
+
+Response is described in the :ref:`GameResponse section <game-response>`.
+
 
 COMMANDS
---------
+^^^^^^^^
 
 ::
 
-    (4, playerKey, (... ship commands? ...))
+    (4, playerKey, commands)
 
-The third item of this list obviously contains commands for your ships. We still can't
-understand them, but if you pass an empty list here (``nil``), your ships will continue
-moving without any commands applied.
+``commands`` is the list of issued commands. Each item has format ``(type, shipId, ...)``, where ``...`` denotes command-specific parameters. 
+Some types of commands are described below.
 
+Response is described in the :ref:`GameResponse section <game-response>`.
+
+
+Accelerate command
+******************
+
+::
+
+    (0, shipId, vector)
+
+Accelerates ship identified by ``shipId`` to the direction opposite to ``vector``.
+
+
+Detonate command
+****************
+
+::
+
+    (1, shipId)
+
+Detonates ship identified by ``shipId``.
+
+
+Shoot command
+*************
+
+::
+
+    (2, shipId, target, x3)
+
+``target`` is a vector with coordinates of the shooting target.
+
+.. _game-response:
 
 GameResponse
-------------
+^^^^^^^^^^^^
+
+In the case of wrong request:
+::
+
+    (0)
+
+In case of correct request:
 
 ::
 
-    (1, GAME_STAGE, (...unknown list A...), (...state of the game?...))
+    (1, gameStage, staticGameInfo, gameState)
 
-- ``1`` – always ``1``. Just indicates success?
-- ``GAME_STAGE``:
-    - ``0`` – indicates that the game has not started yet
-    - ``1`` – indicates that the game has already started
-    - ``2`` – indicates that the game has finished
-- ``(...unknown list A...)`` – still unclear but it doesn't change from turn to turn during the whole game
-- ``(...state of the game?...)`` – it changes from turn to turn. Obviously it's about state of the game, but the details are still unclear too
+- ``1`` indicates success
+- ``gameStage`` is a number
+
+    - ``0`` indicates that the game has not started yet
+    - ``1`` indicates that the game has already started
+    - ``2`` indicates that the game has finished
+- ``staticGameInfo`` doesn't change from turn to turn during the whole game
+- ``gameState`` changes from turn to turn
+    
+::
+ 
+    staticGameInfo = (x0, role, x2, x3, x4)
+
+``role``
+
+    - ``0`` indicates that you are in the attacker role
+    - ``1`` indicates that you are in the defender role
+    
+::
+    
+    gameState = (gameTick, x1, shipsAndCommands)
+
+- ``gameTick`` is the time inside the game
+- ``shipsAndCommands`` is a list of items, each item has a structure of ``(ship, appliedCommands)``
+
+    - ``appliedCommands`` is a list of commands applied to the ``ship`` on the previous tick
+    - ``ship`` is the ship state description
+
+::
+ 
+    ship = (role, shipId, position, velocity, x4, x5, x6, x7)
+
+- ``position`` is a vector with the ship coordinates
+- ``velocity`` is a vector with the ship velocity
 
 
 Scoring

@@ -162,7 +162,7 @@ One can use this request to create the new ``playerKey``\ s to use them in the J
 
 ::
 
-    ( 1 )
+    ( 1, 0 )
 
 Response to that request has format:
 

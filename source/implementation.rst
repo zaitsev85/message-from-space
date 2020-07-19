@@ -1,4 +1,4 @@
-Galaxy evaluator in pseudocode
+Galaxy Evaluator in Pseudocode
 ==============================
 
 .. literalinclude:: pseudocode.txt

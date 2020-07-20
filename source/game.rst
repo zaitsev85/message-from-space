@@ -330,9 +330,20 @@ Then we will assign score to top 50 submissions according to a formula:
 **Total score** for a team is the sum of the scores of that team **for stages 2..8**.
 The first stage earns no score and serves to make you familiar with the system.
 
-After the final Alien Deadline we will stop accepting new submissions entirely. Then we will run an **additional tournament stage**
-between the top 20 teams ranked by the **total score**. **Final submissions** from the last stage will be used in this additional stage.
-Winners of this additional stage will fight against the aliens for the honor of the humankind. And declared as winners of the ICFP Contest 2020.
+After the final Alien Deadline we will stop accepting new submissions entirely.
+We will trigger one final build in all submission branches in all repositories exactly at the moment of the deadline.
+Please note that we build only the latest commit in each branch. If you push N commits at once, it will result in only one built submission.
+Our build process is not instant: the checkout can happen several minutes after the deadline.
+Please don't push anything you don't want to submit after the deadline.
+
+As soon as all the submissions are built and tested, we'll make an announcement.
+After this announcement you will have **exactly 30 minutes** to select your **final submission for the whole tournament**.
+This final submission will play in the stage 8 until all the TrueSkill ratings settle.
+
+Then we will run an **additional tournament stage** between the top 20 teams ranked by the **total score** earned in stages 2..8.
+Your final submission for the whole tournament will play this additional stage.
+Winners of this additional stage will fight against the aliens for the honor of the humankind.
+And declared as winners of the ICFP Contest 2020, of course.
 
 Results of this additional stage and the whole contest will be made public at the ICFP 2020 in August 2020.
 

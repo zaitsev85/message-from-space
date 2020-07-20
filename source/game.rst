@@ -100,8 +100,8 @@ Each action required from your bot **must** be done fast enough, or we will disc
 - ``START``: you should send it within **1 second** after you receive the response to ``JOIN``.
 - ``COMMANDS``: you should send it within **1 second** after you receive the response to previous ``START`` or ``COMMANDS``.
 
-Also you have a timeout for the entire game (all ``COMMAND``\ s, but not ``JOIN`` and ``START``): **1 minute** total.
-We know that a game runs for a maximum of **256** turns, so it's up to you how to use this time.  
+Also you have a timeout for the entire game (all ``COMMAND``\ s, but not ``JOIN`` and ``START``): **2 minute** total.
+We know that a game runs for a maximum of **384** turns, so it's up to you how to use this time.
 
 
 .. _game-implementation:

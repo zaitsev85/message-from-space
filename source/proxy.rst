@@ -63,7 +63,7 @@ Sample response:
 ::
 
    HTTP/1.1 302 Found
-   Location: /aliens/{75960227-653C-47E3-A47A-118A46AFFD4C}
+   Location: /aliens/75960227-653C-47E3-A47A-118A46AFFD4C
 
 
 Get a Response From Spacecraft

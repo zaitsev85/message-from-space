@@ -9,19 +9,7 @@ It's a simple HTTP server.
 Base Url
 --------
 
-https://icfpc2020-api.testkontur.ru/
-
-
-Authorization
--------------
-
-Pass your team's API Key in query string.
-
-Sample request:
-
-::
-
-   POST /some_request?apiKey=<your_team_api_key>
+https://api.pegovka.space/
 
 
 Send a Request to Spacecraft
@@ -35,7 +23,7 @@ Sample request:
 
 ::
 
-   POST /aliens/send?apiKey=<your_team_api_key> HTTP/1.1
+   POST /aliens/send HTTP/1.1
 
    1101000
 
@@ -66,7 +54,7 @@ You will get this response if the spacecraft doesn't respond fast enough.
      
 If the spacecraft doesn't respond fast enough we return ``302 Found`` status code.
 The ``Location`` response HTTP header will contain an URL where you can ask for the response again later.
-In fact, this header will always contain ``/aliens/{responseId}?apiKey=<your_team_api_key>``.
+In fact, this header will always contain ``/aliens/{responseId}``.
 It's a long-polling protocol, so you can make a new request to this location immediately after you got it.
 Many HTTP client implementations, e.g. C#'s ``HttpClient``, can follow redirects automatically, so you don't deal with this.
 
@@ -75,7 +63,7 @@ Sample response:
 ::
 
    HTTP/1.1 302 Found
-   Location: /aliens/{75960227-653C-47E3-A47A-118A46AFFD4C}?apiKey=<your_team_api_key>
+   Location: /aliens/{75960227-653C-47E3-A47A-118A46AFFD4C}
 
 
 Get a Response From Spacecraft

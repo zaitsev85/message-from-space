@@ -30,19 +30,19 @@ The operator defined in this message, ``mod``, is for converting numbers from a 
   * 01: positive number
   * 10: negative number
      
-* Bits 2..(n+2) define the width of the following binary-encoded number via a unary-encoded number of length *n* composed of high signals ending with a low signal. The number width (in bits) is four times the unary encoding (i.e. 4 * *n*):
+* Bits 2..(n+2) define the width of the following binary-encoded number via a unary-encoded number of length *n* composed of high signals ending with a low signal. The number width (in bits) is four times the unary encoding (i.e. 4 * *n*), or alternatively the number of hexadecimal digits required to encode the number:
 
   * 0: 0 [i.e. the number zero]
-  * 10: 4-bit number [i.e. 1-15]
-  * 110: 8-bit number [i.e. 1-255]
-  * 1110: 12-bit number [i.e. 1-4095]
+  * 10: 4-bit number [i.e. 0..15; or 0x0..0xF]
+  * 110: 8-bit number [i.e. 0..255; or 0x00..0xFF]
+  * 1110: 12-bit number [i.e. 0..4095; or 0x000..0xFFF]
   * ...
      
 * The remaining bits, i.e. (n + 3)..(n + 3 + 4*n - 1), determine the number itself, in most-significant-bit first binary notation. Using the examples from this message:
 
-  * 0001: 1
-  * 00010000: 16
-  * 000100000000: 256
+  * 0001: 1 or 0x1
+  * 00010000: 16 or 0x10
+  * 000100000000: 256 or 0x100
   * ...
 
 With this encoding, the number zero only requires three bits (i.e. 010), but arbitrarily large numbers can also be represented.
